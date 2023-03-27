@@ -1,6 +1,5 @@
 package com.tzuxin.datastructures.stack;
 
-import sun.misc.Queue;
 
 import java.util.Stack;
 
