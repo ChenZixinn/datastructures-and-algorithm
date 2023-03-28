@@ -1,5 +1,8 @@
 package com.tzuxin.datastructures.recurrence;
 
+/**
+ * 解决八皇后问题
+ */
 public class Queen8 {
     int max = 8;
     // 定义数组，保存皇后放置位置的结果，比如arr={0, 4, 7, 5, 2, 6, 1, 3}
