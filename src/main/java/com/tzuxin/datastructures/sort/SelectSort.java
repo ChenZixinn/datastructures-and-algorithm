@@ -3,8 +3,8 @@ package com.tzuxin.datastructures.sort;
 /**
  * 选择排序
  */
-public class SelectSorting {
-    public static void sort(int[] arr){
+public class SelectSort {
+    public static void selectSort(int[] arr){
         int index;
         int min;
         for (int i = 0; i < arr.length; i++) {
@@ -31,7 +31,7 @@ public class SelectSorting {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1,5,3,6,2,7,3};
-        SelectSorting.sort(arr);
+        SelectSort.selectSort(arr);
         for (int i : arr) {
             System.out.print(i + " ");
         }

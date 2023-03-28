@@ -3,9 +3,9 @@ package com.tzuxin.datastructures.sort;
 /**
  * 冒泡排序
  */
-public class BubbleSorting {
+public class BubbleSort {
 
-    public static void sort(int[] arr){
+    public static void bubbleSort(int[] arr){
         boolean flag = true;
         for (int i = 0; i < arr.length - 1; i++) {
             for (int j = 0; j < arr.length - i - 1; j++) {
@@ -26,7 +26,7 @@ public class BubbleSorting {
 
     public static void main(String[] args) {
         int[] arr = new int[]{1,6,2,9,3,8,4,0,5,11,7};
-        BubbleSorting.sort(arr);
+        BubbleSort.bubbleSort(arr);
         for (int i : arr) {
             System.out.println("排序后：");
             System.out.print(i + " ");

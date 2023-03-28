@@ -23,6 +23,8 @@
 ##### 直接插入排序
 
 ##### 希尔排序
+[ShellSort.java](./src/main/java/com/tzuxin/datastructures/sort/ShellSort.java)
+
 
 ## 2） 选择排序
 ##### 简单选择排序
@@ -33,8 +35,9 @@
 
 ## 3）交换排序
 ##### 冒泡排序
-[BubbleSorting.java](./src/main/java/com/tzuxin/datastructures/sort/BubbleSorting.java)
+[BubbleSorting.java](./src/main/java/com/tzuxin/datastructures/sort/BubbleSort.java)
 ##### 快速排序
+[QuickSort.java](./src/main/java/com/tzuxin/datastructures/sort/QuickSort.java)
 
 
 ## 4）归并排序
