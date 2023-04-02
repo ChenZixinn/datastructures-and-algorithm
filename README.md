@@ -17,6 +17,10 @@
 ##### 八皇后问题
 [Queen8.java](./src/main/java/com/tzuxin/datastructures/recurrence/Queen8.java)
 
+## 4)、哈希表(Hash Table)
+[HashTableDemo.java](./src/main/java/com/tzuxin/datastructures/recurrence/HashTableDemo.java)
+
+
 # 2、排序算法
 
 ## 1） 插入排序
