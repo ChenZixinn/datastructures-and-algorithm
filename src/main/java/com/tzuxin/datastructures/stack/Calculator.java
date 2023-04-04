@@ -10,12 +10,20 @@ public class Calculator {
     Stack<Character> operStack;
     String example = "";
 
+    /**
+     * 构造函数
+     * @param example 算式字符串
+     */
     public Calculator(String example) {
         numStack = new Stack<>();
         operStack = new Stack<>();
         this.example = example;
     }
 
+    /**
+     * 执行计算的主要操作
+     * @return 结果
+     */
     public Float getResult() {
         int index = 0;
         for (int i = 0; i < example.length(); i++) {
@@ -62,6 +70,11 @@ public class Calculator {
         return null;
     }
 
+    /**
+     * 判断优先级
+     * @param oper 符号
+     * @return 数字越大优先级越高
+     */
     public int priority(char oper) {
         if (oper == '*' || oper == '/') {
             return 1;
@@ -72,10 +85,22 @@ public class Calculator {
         }
     }
 
+    /**
+     * 判断是不是符号
+     * @param c
+     * @return
+     */
     public boolean isOper(char c) {
         return c == '*' || c == '/' || c == '+' || c == '-';
     }
 
+    /**
+     * 计算
+     * @param n1
+     * @param n2
+     * @param oper
+     * @return
+     */
     public Float cal(float n1, float n2, char oper) {
         if (oper == '*') {
             return n1 * n2;

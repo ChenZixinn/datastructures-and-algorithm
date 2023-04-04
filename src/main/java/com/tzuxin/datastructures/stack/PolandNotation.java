@@ -12,12 +12,20 @@ public class PolandNotation {
     Stack<Character> s2;
     String example = "";
 
+    /**
+     * 构造函数
+     * @param example 算式字符串
+     */
     public PolandNotation(String example) {
         s1 = new Stack<>();
         s2 = new Stack<>();
         this.example = example;
     }
 
+    /**
+     * 执行计算的主要操作
+     * @return
+     */
     public Float getResult() {
         int index = 0;
         for (int i = 0; i < example.length(); i++) {
@@ -66,6 +74,11 @@ public class PolandNotation {
         revertStack(s2);
         return null;
     }
+
+    /**
+     * 翻转栈
+     * @param stack
+     */
     public void revertStack(Stack<Character> stack){
         Stack<Character> stackNew = new Stack<>();
         while (!stack.empty())
@@ -77,6 +90,11 @@ public class PolandNotation {
         }
     }
 
+    /**
+     * 判断符号优先级
+     * @param oper
+     * @return
+     */
     public int priority(char oper) {
         if (oper == '*' || oper == '/') {
             return 1;
@@ -87,14 +105,29 @@ public class PolandNotation {
         }
     }
 
+    /**
+     * 判断是不是符号
+     * @param c
+     * @return
+     */
     public boolean isOper(char c) {
         return c == '*' || c == '/' || c == '+' || c == '-';
     }
 
+    /**
+     * 判断是不是左括号
+     * @param c
+     * @return
+     */
     public boolean isLeft(char c) {
         return '(' == c;
     }
 
+    /**
+     * 判断是不是右括号
+     * @param c
+     * @return
+     */
     public boolean isRight(char c) {
         return ')' == c;
     }

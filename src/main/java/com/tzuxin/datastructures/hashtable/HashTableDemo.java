@@ -24,6 +24,10 @@ public class HashTableDemo {
 
     }
 }
+
+/**
+ * 实现Hash表
+ */
 class MyHashTable{
     EmployeeLinkedList[] empLinkedListArray;
     int size;
@@ -66,6 +70,7 @@ class MyHashTable{
         return id % size;
     }
 }
+
 /**
  * 实体类
  */

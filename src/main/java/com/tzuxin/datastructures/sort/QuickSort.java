@@ -23,7 +23,7 @@ public class QuickSort {
             // 把基准数放到中心
             arr[high] = arr[pointer];
             arr[pointer] = pivot;
-
+            // 递归
             quickSort(arr, low, pointer - 1);
             quickSort(arr, pointer + 1, high);
 

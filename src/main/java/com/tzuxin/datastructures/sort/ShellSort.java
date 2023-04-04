@@ -7,6 +7,7 @@ import java.util.Arrays;
 public class ShellSort {
     public static void shellSort(int[] arr) {
         int len = arr.length;
+        // 根据步长先排序一轮
         int temp, gap = len / 2;
         while (gap > 0) {
             for (int i = gap; i < len; i++) {

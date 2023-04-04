@@ -1,5 +1,8 @@
 package com.tzuxin.datastructures.search;
 
+/*
+二分查找
+ */
 public class BinarySearch {
     public static int binarySearch(int[] arr, int left, int right, int num) {
         if (left > right) {

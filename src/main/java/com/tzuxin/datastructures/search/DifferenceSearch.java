@@ -1,11 +1,13 @@
 package com.tzuxin.datastructures.search;
 
+/**
+ * 差值查找
+ */
 public class DifferenceSearch {
     public static int differenceSearch(int[] arr, int left, int right, int num) {
         if (left > right || num < arr[left] || num > arr[right]) {
             return -1;
         }
-        System.out.println("1");
         int mid = left+(right-left)*(num-arr[left])/(arr[right]-arr[left]);
         if (num == arr[mid]) {
             return mid;

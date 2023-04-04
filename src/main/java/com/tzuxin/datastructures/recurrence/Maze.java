@@ -10,6 +10,8 @@ public class Maze {
     int[][] map = new int[8][7];
 
     public Maze(){
+        // 创建一个迷宫 0是路 1是墙壁 2是走的路
+
         for (int i = 0; i < 7; i++) {
             map[0][i] = 1;
             map[7][i] = 1;
@@ -21,11 +23,26 @@ public class Maze {
 
         System.out.println("原始迷宫：");
         this.toString();
+//        1  1  1  1  1  1  1
+//        1  0  0  0  0  0  1
+//        1  0  0  0  0  0  1
+//        1  1  1  0  0  0  1
+//        1  0  0  0  0  0  1
+//        1  0  0  0  0  0  1
+//        1  0  0  0  0  0  1
+//        1  1  1  1  1  1  1
 
         System.out.println("递归后：");
         setWay(map, 1, 1);
         this.toString();
-
+//        1  1  1  1  1  1  1
+//        1  2  0  0  0  0  1
+//        1  2  2  2  0  0  1
+//        1  1  1  2  0  0  1
+//        1  0  0  2  0  0  1
+//        1  0  0  2  0  0  1
+//        1  0  0  2  2  2  1
+//        1  1  1  1  1  1  1
     }
     public boolean setWay(int[][] map, int i, int j){
         if (map[6][5] == 2){
