@@ -10,26 +10,34 @@ public class HuffmanCode {
         byte[] contentBytes = content.getBytes();
 
 //        // 压缩
-//        byte[] huffman = huffmanZip(contentBytes);
-//        System.out.println(Arrays.toString(huffman));
+        byte[] huffman = huffmanZip(contentBytes);
+        System.out.println(Arrays.toString(huffman));
 //
 //        // 解压
-//        byte[] decode = decode(huffmanCode, huffman);
-//        for (byte b : decode) {
-//            System.out.print((char)b);
-//        }
+        byte[] decode = decode(huffmanCode, huffman);
+        for (byte b : decode) {
+            System.out.print((char)b);
+        }
 
         // 压缩文件
-//        zipFile("src/test/java/src.png", "src/test/java/src.zip");
+        zipFile("src/test/java/src.png", "src/test/java/src.zip");
 
         // 解压文件
         unZipFile("src/test/java/src.zip", "src/test/java/testUnZip.png");
     }
-    // 存放哈夫曼编码表
+    /**
+     * 哈夫曼编码表
+      */
     static Map<Byte, String> huffmanCode = new HashMap<>();
-    // 存放路径
+    /**
+     * 存放走过的路径
+     */
+
     static StringBuilder path = new StringBuilder();
-    // 记录最后一位的长度，因为最后一个可能不足8位，需要考虑补0的问题
+    /**
+     * 记录编码后字符串最后一位的长度
+     * 因为最后一个可能不足8位，需要考虑补0的问题
+     */
     static int lastCodeLen;
 
 
