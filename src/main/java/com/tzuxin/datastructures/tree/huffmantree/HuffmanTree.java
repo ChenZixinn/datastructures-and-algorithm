@@ -7,29 +7,30 @@ import java.util.Collections;
 
 public class HuffmanTree {
     public static void main(String[] args) {
-        int[] arr = {13,7,8,3,29,6,1};
+        int[] arr = {1, 1, 1, 2, 2, 2, 4, 4, 4, 5, 5, 9};
         Node root = HuffmanTree.createHuffmanTree(arr);
         HuffmanTree.preOrder(root);
     }
 
-    public static void preOrder(Node root){
-        if (root!=null){
+    public static void preOrder(Node root) {
+        if (root != null) {
             root.preOrder();
         }
     }
 
     /**
      * 构建哈夫曼树
+     *
      * @param arr 要构建哈夫曼树的数组
      */
-    public static Node createHuffmanTree(int[] arr){
+    public static Node createHuffmanTree(int[] arr) {
         ArrayList<Node> nodes = new ArrayList<>();
         // 遍历将Node放入数组
         for (int value : arr) {
             nodes.add(new Node(value));
         }
         // 当剩下最后一个节点时即为完成
-        while (nodes.size() > 1){
+        while (nodes.size() > 1) {
             // 排序
             // node实现了comparable接口
             Collections.sort(nodes);
@@ -49,7 +50,7 @@ public class HuffmanTree {
     }
 }
 
-class Node implements Comparable<Node>{
+class Node implements Comparable<Node> {
     int value;
     Node left;
     Node right;
@@ -58,18 +59,21 @@ class Node implements Comparable<Node>{
         this.value = value;
     }
 
+
+
     /**
      * 前序遍历
      */
-    public void preOrder(){
+    public void preOrder() {
         System.out.println(this);
-        if (this.left != null){
+        if (this.left != null) {
             this.left.preOrder();
         }
-        if (this.right != null){
+        if (this.right != null) {
             this.right.preOrder();
         }
     }
+
     @Override
     public String toString() {
         return "Node{" +
