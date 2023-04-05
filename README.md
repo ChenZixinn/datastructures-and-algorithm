@@ -26,7 +26,9 @@
 
 ##### [二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
 
-##### [平衡二叉树(AVL)](./src/main/java/com/tzuxin/datastructures/tree/)
+##### [平衡二叉树(AVL Tree)](./src/main/java/com/tzuxin/datastructures/tree/avl/AVLTree.java)
+
+实现左右旋转、双旋转
 
 # 2、排序算法
 
