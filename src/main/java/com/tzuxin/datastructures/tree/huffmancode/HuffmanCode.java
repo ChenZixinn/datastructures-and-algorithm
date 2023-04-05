@@ -33,6 +33,11 @@ public class HuffmanCode {
     static int lastCodeLen;
 
 
+    /**
+     * 解压文件
+     * @param src 压缩后的文件
+     * @param out 要输出的文件名
+     */
     private static void unZipFile(String src, String out) {
         InputStream is = null;
         OutputStream os = null;
