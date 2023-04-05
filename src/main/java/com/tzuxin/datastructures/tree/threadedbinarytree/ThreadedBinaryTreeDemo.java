@@ -109,7 +109,9 @@ class ThreadedBinaryTree {
     // 记录上一个节点，方便设置后继节点
     private TreeNode pre = null;
 
-    // 重载
+    /**
+     * 线索化二叉树
+     */
     public void threadedNodes(){
         this.threadedNodes(root);
     }

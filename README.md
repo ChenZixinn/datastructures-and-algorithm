@@ -24,6 +24,8 @@
 
 实现文件压缩和解压操作
 
+##### [二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
+
 # 2、排序算法
 
 ## 1） 插入排序
