@@ -26,6 +26,8 @@
 
 ##### [二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
 
+##### [平衡二叉树(AVL)](./src/main/java/com/tzuxin/datastructures/tree/)
+
 # 2、排序算法
 
 ## 1） 插入排序
