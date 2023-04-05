@@ -57,10 +57,14 @@ public class HuffmanCode {
 
             // 读取字节数组
             byte[] huffmanBytes = (byte[]) ois.readObject();
+            // 读取哈夫曼编码Map
             Map<Byte, String> huffmanCodes = (Map<Byte, String>) ois.readObject();
+            // 读取最后一个字节的长度
             lastCodeLen = (int) ois.readObject();
 
+            // 解码
             byte[] decode = decode(huffmanCodes, huffmanBytes);
+            // 将解压后的数据写入到文件
             os.write(decode);
         } catch (Exception e) {
             System.out.println(e.getMessage());
@@ -101,7 +105,6 @@ public class HuffmanCode {
             oos.writeObject(huffmanCode);
             // 写入最后一个字节的长度
             oos.writeObject(lastCodeLen);
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         } finally {
