@@ -22,15 +22,17 @@
 ##### [哈夫曼树(Huffman Tree)](./src/main/java/com/tzuxin/datastructures/tree/huffmantree/HuffmanTree.java)
 ##### [数据压缩(哈夫曼编码 Huffman Code)](./src/main/java/com/tzuxin/datastructures/tree/huffmancode/HuffmanCode.java)
 
-## 6) 图
-##### [图(Graph)](./src/main/java/com/tzuxin/datastructures/graph/Graph.java)
-实现广度优先和深度优先算法
-
 实现文件压缩和解压操作
 
 ##### [二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
 
 ##### [平衡二叉树(AVL Tree)](./src/main/java/com/tzuxin/datastructures/tree/avl/AVLTree.java)
+
+
+
+## 6) 图
+##### [图(Graph)](./src/main/java/com/tzuxin/datastructures/graph/Graph.java)
+实现广度优先和深度优先算法
 
 实现左右旋转、双旋转
 
@@ -100,3 +102,7 @@
 #####  [差值查找(Difference Search)](./src/main/java/com/tzuxin/datastructures/search/DifferenceSearch.java)
 
 #####  [斐波那契(黄金分割法)查找(Fibonacci Search)](./src/main/java/com/tzuxin/datastructures/search/FibonacciSearch.java)
+
+
+# 4、十大常见算法
+##### [非递归二分查找(Binary Search)](src/main/java/com/tzuxin/algorithm/binarysearch/BinarySearch.java)

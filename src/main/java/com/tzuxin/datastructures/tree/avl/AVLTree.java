@@ -52,22 +52,29 @@ public class AVLTree {
             root = node;
         }else {
             root.add(node);
-            if (root.leftHeight() - root.rightHeight() > 1){
-                // 此处需要判断是否会出现需要双旋转的情况，即旋转一次后依然不满足AVL的条件
-                // 1、满足右旋转条件
-                // 2、如果root的左子树的右子树大于左子树的高度
-                // 3、先对root的左节点进行旋转
-                // 4、再对root进行右旋转即可
-                while (root.left.rightHeight() > root.left.leftHeight()){
-                    root.left = root.left.leftRotate();
-                }
-                rightRotate();
-            } else if (root.rightHeight() - root.leftHeight() > 1) {
-                while (root.right.leftHeight() > root.right.rightHeight()){
-                    root.right = root.right.rightRotate();
-                }
-                leftRotate();
+            checkAndRotate();
+        }
+    }
+
+    /**
+     * 判断进行树的调整
+     */
+    public void checkAndRotate(){
+        if (root.leftHeight() - root.rightHeight() > 1){
+            // 此处需要判断是否会出现需要双旋转的情况，即旋转一次后依然不满足AVL的条件
+            // 1、满足右旋转条件
+            // 2、如果root的左子树的右子树大于左子树的高度
+            // 3、先对root的左节点进行旋转
+            // 4、再对root进行右旋转即可
+            while (root.left.rightHeight() > root.left.leftHeight()){
+                root.left = root.left.leftRotate();
             }
+            rightRotate();
+        } else if (root.rightHeight() - root.leftHeight() > 1) {
+            while (root.right.leftHeight() > root.right.rightHeight()){
+                root.right = root.right.rightRotate();
+            }
+            leftRotate();
         }
     }
 
@@ -202,6 +209,7 @@ public class AVLTree {
                 minNode.right = target.right;
             }
         }
+        checkAndRotate();
     }
 
 }
