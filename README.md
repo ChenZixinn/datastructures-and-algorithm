@@ -22,6 +22,10 @@
 ##### [哈夫曼树(Huffman Tree)](./src/main/java/com/tzuxin/datastructures/tree/huffmantree/HuffmanTree.java)
 ##### [数据压缩(哈夫曼编码 Huffman Code)](./src/main/java/com/tzuxin/datastructures/tree/huffmancode/HuffmanCode.java)
 
+## 6) 图
+##### [图(Graph)](./src/main/java/com/tzuxin/datastructures/graph/Graph.java)
+实现广度优先和深度优先算法
+
 实现文件压缩和解压操作
 
 ##### [二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
