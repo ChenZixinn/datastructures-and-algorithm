@@ -9,6 +9,13 @@ public class HanoiTower {
         hanoiTower(3,'A', 'B', 'C');
     }
 
+    /**
+     *
+     * @param num 有多少个盘
+     * @param a 从哪里移动
+     * @param b 其他柱子
+     * @param c 移动到哪里
+     */
     public static void hanoiTower(int num, char a, char b, char c){
         if (num <= 1){
             System.out.println("从" + a + " -> " + c);
