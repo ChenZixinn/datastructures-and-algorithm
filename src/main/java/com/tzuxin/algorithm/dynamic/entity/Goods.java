@@ -1,4 +1,4 @@
-package com.tzuxin.algorithm.dynamic;
+package com.tzuxin.algorithm.dynamic.entity;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -12,8 +12,7 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 public class Goods {
-    String name;
-    int weight;
-    int value;
-
+    private String name;
+    private int weight;
+    private int value;
 }
