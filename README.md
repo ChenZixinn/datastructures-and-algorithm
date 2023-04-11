@@ -403,6 +403,31 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 
 [代码实现]("src/main/java/com/tzuxin/algorithm/greedy/GreedyAlgorithm.java")
 
+部分代码：
+
+```java
+/**
+ * 贪婪算法实现
+ */
+public void greedyAlgorithm(){
+    getAllAreasFromRadios(); // 获取到所有城市，存储到this.allAreas属性中
+    while (this.allAreas.size() > 0){
+        // 获取匹配值最高的对象
+        Radio radio = getMateRadio();
+        // 放入列表中
+        selects.add(radio);
+        // 删除该对象覆盖的地区
+        for (String s : radio.getCityList()) {
+            this.allAreas.remove(s);
+        }
+    }
+    System.out.println("结果：");
+    System.out.println(this.selects);
+}
+```
+
+
+
 
 
 ##### 注意事项和细节
@@ -443,7 +468,7 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 
    问:如何修路保证各个村庄都能连通，并且总的修建公路总里程最短?
 
-**思路:** 将 10 条边，连接即可，但是总的里程数不是最小.
+**简单思路:** 将 10 条边，连接即可，但是总的里程数不是最小.
 
 **正确的思路:** 尽可能的选择少的路线，并且每条路线最小，保证总里程数最少
 
@@ -453,7 +478,7 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 
 修路问题本质就是就是最小生成树问题， 先介绍一下**最小生成树(Minimum Cost Spanning Tree)**，简称MST
 
-给定一个带权的无向连通图,如何选取一棵生成树,使树上所有边上权的总和为最小这叫最小生成树
+给定一个带权的无向连通图,如何选取一棵生成树，使树上所有边上权的总和为最小这叫最小生成树
 
 1. N个顶点，一定有N-1条边
 2. 包含全部顶点
@@ -468,7 +493,7 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 /**
  * Prim算法，得到最小生成树
  * @param graph 图
- * @param v     从那个顶点开始生成
+ * @param v 从那个顶点开始生成
  */
 public void prim(Graph graph, int v) {
     // 标记节点是否访问过 0是没访问过 1是访问过
@@ -502,6 +527,119 @@ public void prim(Graph graph, int v) {
         isVisited[h2] = 1;
         minWeight = Integer.MAX_VALUE;
     }
+}
+```
+
+
+
+### 4.7 克鲁思卡尔(Kruskal)算法
+
+#### 算法解析
+
+##### 算法图解
+
+![image-20230411194903150](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230411194903150.png)
+
+第 1步：将边**<E,F>**加入 R 中。边<E,F>的权值最小，因此将它加入到最小生成树结果 R 中。
+
+第2步：将边**<C,D>**加入 R中。上一步操作之后，边<C,D>的权值最小，因此将它加入到最小生成树结果 R 中
+
+第3步：将边**<D,E>**加入 R中。上一步操作之后，边<D,E>的权值最小，因此将它加入到最小生成树结果 R 中
+
+第4步：将边**<B,F>**加入 R 中。上一步操作之后，边<C,E>的权值最小，但<C,E>会和已有的边构成回路:因此，跳过边<C,E>。同理，跳过边<C,F>。将边<B,F>加入到最小生成树结果 R 中。
+
+第 5步：将边**<E.G>**加入 R 中。上一步操作之后，边<E,G>的权值最小，因此将它加入到最小生成树结果 R 中
+
+第6步：将边**<A.B>**加入 R中。上一步操作之后，边<F,G>的权值最小，但<F.G>会和已有的边构成回路:因此，跳过边<F.G>。同理，跳过边<B,C>。将边<A,B>加入到最小生成树结果 R 中。
+
+此时，最小生成树构造完成! 它包括的边依次是: **<E,F> <C,D> <D,E> <B,F> <E,G> <A,B>**
+
+
+
+##### 解析
+
+根据前面介绍的克鲁斯卡尔算法的基本思想和做法，我们能够了解到，克鲁斯卡尔算法重点需要解决的以下两个问题:
+
+**问题一** 对图的所有边按照权值大小进行排序。
+
+**问题二** 将边添加到最小生成树中时，怎么样判断是否形成了回路。
+
+问题一很好解决，采用排序算法进行排序即可。问题二，处理方式是:记录顶点在"最小生成树"中的终点，顶点的终点是"在最小生成树中与它连通的最大顶点"然后每次需要将一条边添加到最小生存树时，判断该边的两个顶点的终点是否重合，重合的话则会构成回路。
+
+
+
+##### 判断是否构成回路
+
+![image-20230411195552638](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230411195552638.png)
+
+在将<E,F><C,D> <D,E>加入到最小生成树 R 中之后，这几条边的顶点就都有了终点:
+
+- C 的终点是 F
+- D 的终点是 F。
+- E 的终点是 F
+- F的终点是 F
+
+关于终点的说明:
+
+1. 就是将所有顶点按照从小到大的顺序排列好之后，某个顶点的终点就是**"与它连通的最大顶点"**。
+2. 因此，接下来，虽然**<C,E>**是权值最小的边。但是 C和E的终点都是F，即它们的终点相同，因此，将<C,E>加入最小生成树的话，会形成回路。这就是判断回路的方式。也就是说，我们加入的边的两个顶点不能都指向同-人终点，否则将构成回路。
+
+
+
+#### 代码演示
+
+[代码实现]("src/main/java/com/tzuxin/algorithm/kruskal/KruskalAlgorithm.java")
+
+```java
+// 部分代码
+
+/**
+ * 克鲁斯卡尔算法
+ */
+public void kruskal() {
+    // 表示最后数组结果的索引
+    int index = 0;
+    // 存放最小生成树中节点的终点
+    int[] ends = new int[edgeNum];
+    // 记录最后的结果,边的数量=节点-1
+    Edge[] rest = new Edge[vertexes.length-1];
+
+    // 获取所有边的集合
+    Edge[] edges = getEdgesList();
+
+    // 遍历所有的边，判断是否会形成回路，不会的就加入到rest数组中
+    for (Edge edge : edges) {
+        // 查询这条边两个顶点的下标
+        int p1 = getPosition(edge.getStart());
+        int p2 = getPosition(edge.getEnd());
+        // 找到这两个点的终点
+        int m = getEnd(ends, p1);
+        int n = getEnd(ends, p2);
+        // 如果没有形成回路
+        if (m != n) {
+            // 记录m的终点为n
+            ends[m] = n;
+            // 把这条线加入结果数组中
+            rest[index++] = edge;
+        }
+    }
+    System.out.println("result: " + Arrays.toString(rest));
+}
+
+
+/**
+ * 获取下标为i的顶点的重点，用于判断两个顶点的终点是否一直
+ *
+ * @param ends 各个顶点对应的终点
+ * @param i    顶点的下标
+ * @return 终点的下标
+ */
+public int getEnd(int[] ends, int i) {
+    // 如果终点不是0，则一直寻找
+    while (ends[i] != 0) {
+        i = ends[i];
+    }
+    return i;
 }
 ```
 

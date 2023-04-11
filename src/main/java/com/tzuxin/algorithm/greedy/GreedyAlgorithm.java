@@ -88,7 +88,7 @@ public class GreedyAlgorithm {
      * 贪婪算法实现
      */
     public void greedyAlgorithm(){
-        getAllAreasFromRadios(); // 获取到所有城市，存储到allAreas属性中
+        getAllAreasFromRadios(); // 获取到所有城市，存储到this.allAreas属性中
         while (this.allAreas.size() > 0){
             // 获取匹配值最高的对象
             Radio radio = getMateRadio();

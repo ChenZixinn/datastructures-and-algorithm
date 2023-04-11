@@ -6,23 +6,26 @@ package com.tzuxin.algorithm.prim;
  * @author chenzixin
  */
 public class PrimAlgorithm {
+    private static final int INF = Integer.MAX_VALUE;
     public static void main(String[] args) {
         // 图的节点数量
-        int verxs = 7;
+        int vertexes = 7;
         // 图节点的数据
         char[] data = {'A', 'B', 'C', 'D', 'E', 'F', 'G'};
-        // 连接点的权值
+        // 连接点的权值ß
         int[][] weight = new int[][]{
-                {Integer.MAX_VALUE, 5, 7, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 2},
-                {5, Integer.MAX_VALUE, Integer.MAX_VALUE, 9, Integer.MAX_VALUE, Integer.MAX_VALUE, 3},
-                {7, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 8, Integer.MAX_VALUE, Integer.MAX_VALUE},
-                {Integer.MAX_VALUE, 9, Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 4, Integer.MAX_VALUE},
-                {Integer.MAX_VALUE, Integer.MAX_VALUE, 8, Integer.MAX_VALUE, Integer.MAX_VALUE, 5, 4},
-                {Integer.MAX_VALUE, Integer.MAX_VALUE, Integer.MAX_VALUE, 4, 5, Integer.MAX_VALUE, 6},
-                {2, 3, Integer.MAX_VALUE, Integer.MAX_VALUE, 4, 6, Integer.MAX_VALUE}
+                    /* A    B   C   D   E   F   G */
+                /*A*/ {INF, 5, 7, INF, INF, INF, 2},
+                /*B*/ {5, INF, INF, 9, INF, INF, 3},
+                /*C*/ {7, INF, INF, INF, 8, INF, INF},
+                /*D*/ {INF, 9, INF, INF, INF, 4, INF},
+                /*E*/ {INF, INF, 8, INF, INF, 5, 4},
+                /*F*/ {INF, INF, INF, 4, 5, INF, 6},
+                /*G*/ {2, 3, INF, INF, 4, 6, INF}
         };
+
         // 创建图对象
-        Graph graph = new Graph(verxs, data, weight);
+        Graph graph = new Graph(vertexes, data, weight);
         // 创建最小生成树
         MinTree minTree = new MinTree(graph);
 //        minTree.showGraph(graph);

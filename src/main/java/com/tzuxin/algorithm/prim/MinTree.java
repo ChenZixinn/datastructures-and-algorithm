@@ -2,6 +2,9 @@ package com.tzuxin.algorithm.prim;
 
 import java.util.Arrays;
 
+/**
+ * 最小生成树类
+ */
 public class MinTree {
     Graph graph;
 
@@ -16,7 +19,7 @@ public class MinTree {
      */
     public void prim(Graph graph, int v) {
         // 标记节点是否访问过 0是没访问过 1是访问过
-        int[] isVisited = new int[graph.getVerxs()];
+        int[] isVisited = new int[graph.getVertexes()];
 
         // 标记为已访问
         isVisited[v] = 1;
@@ -27,12 +30,12 @@ public class MinTree {
         int minWeight = Integer.MAX_VALUE;
 
         // 需要n-1条边
-        for (int k = 1; k < graph.getVerxs(); k++) {
+        for (int k = 1; k < graph.getVertexes(); k++) {
 
             // 确定每一次生成的子图(i节点)能到达的权值最小的没访问过的点(j)
             // i表示已经访问的节点，j表示没被访问过的节点
-            for (int i = 0; i < graph.getVerxs(); i++) {
-                for (int j = 0; j < graph.getVerxs(); j++) {
+            for (int i = 0; i < graph.getVertexes(); i++) {
+                for (int j = 0; j < graph.getVertexes(); j++) {
                     if (isVisited[i] == 1 && isVisited[j] == 0 && graph.getWeight()[i][j] < minWeight) {
                         h1 = i;
                         h2 = j;

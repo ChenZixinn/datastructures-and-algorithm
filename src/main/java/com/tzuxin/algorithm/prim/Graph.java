@@ -13,7 +13,7 @@ public class Graph
     /**
      * 图的节点数
      */
-    private int verxs;
+    private int vertexes;
     /**
      * 存放节点的数据
      */
@@ -26,12 +26,12 @@ public class Graph
     /**
      *
 //     * @param graph 图对象
-     * @param verxs 图对应的顶点个数
+     * @param vertexes 图对应的顶点个数
      * @param data 图的各个顶点的值
      * @param weight 图的邻接矩阵
      */
-    public Graph(int verxs, char[] data, int[][] weight) {
-        this.verxs = verxs;
+    public Graph(int vertexes, char[] data, int[][] weight) {
+        this.vertexes = vertexes;
         this.data = data;
         this.weight = weight;
     }
