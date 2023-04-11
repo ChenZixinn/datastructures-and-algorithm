@@ -3,6 +3,9 @@ package com.tzuxin.algorithm.kmp;
 import java.util.Arrays;
 import java.util.Objects;
 
+/**
+ * KMP算法，解决字符串匹配问题
+ */
 public class KMPAlgorithm {
     public static void main(String[] args) {
         String str1 = "BBC ABCDAB ABCDABCDABDE";

@@ -9,6 +9,7 @@ import java.util.Arrays;
 import java.util.HashSet;
 
 /**
+ * 贪心算法，解决集合覆盖问题
  * @author chenzixin
  */
 @Data

@@ -137,7 +137,10 @@ public static int binarySearch(int[] arr, int target){
 
 
 ### 4.2 分治算法(Divide-and-Conquer)
-#### **分支算法的基本步骤**
+
+#### 分治算法介绍
+
+##### **分支算法的基本步骤**
 
 1. 分解：将原问题分解为若干个规模较小，相互独立，与原问题形式相同的子问题
 2. 解决：若子问题规模较小而容易被解决则直接解，否则递归地解各个子问题
@@ -145,7 +148,7 @@ public static int binarySearch(int[] arr, int target){
 
 
 
-#### 分治(Divide-and-Conquer(P))算法的设计模式
+##### 分治(Divide-and-Conquer(P))算法的设计模式
 
 ```
 iflpl<n0
@@ -165,7 +168,7 @@ return(T)
 
 
 
-#### 实现思路
+##### 实现思路
 
 - 如果只有一个盘，A -> C
 
@@ -207,6 +210,17 @@ public static void hanoiTower(int num, char a, char b, char c){
 
 ### 4.3 动态规划算法
 
+
+
+#### 动态规划算法介绍
+
+1. 动态规划(Dynamic Programming)算法的核心思想是: 将大问题划分为小问题进行解决，从而一步步获取最优解的处理算法。
+2. 动态规划算法与分治算法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。
+3. 与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往不是互相独立的。(即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解 )
+4. 动态规划可以通过填表的方式来逐步推进，得到最优解。
+
+
+
 #### 应用场景：背包问题
 
 有一个背包，容量为4磅，现有如下物品
@@ -220,14 +234,9 @@ public static void hanoiTower(int num, char a, char b, char c){
 - 要求达到的目标为装入的背包的总价值最大，并且重量不超出
 - 要求装入的物品不能重复（01背包问题）
 
-#### 动态规划算法介绍
 
-1. 动态规划(Dynamic Programming)算法的核心思想是: 将大问题划分为小问题进行解决，从而一步步获取最优解的处理算法。
-2. 动态规划算法与分治算法类似，其基本思想也是将待求解问题分解成若干个子问题，先求解子问题，然后从这些子问题的解得到原问题的解。
-3. 与分治法不同的是，适合于用动态规划求解的问题，经分解得到子问题往往不是互相独立的。(即下一个子阶段的求解是建立在上一个子阶段的解的基础上，进行进一步的求解 )
-4. 动态规划可以通过填表的方式来逐步推进，得到最优解。
 
-#### 思路分析
+##### 思路分析
 
 - 背包问题主要是指一个给定容量的背包、若干具有一定价值和重量的物品，如何选择物品放入背包使物品的价值最大。其中又分01背包和完全背包(完全背包指的是:每种物品都有无限件可用)
 - 这里的问题属于01背包，即每个物品最多放一个。而无限背包可以转化为01背包
@@ -303,14 +312,6 @@ for (int i = 1; i < v.length; i++) {
 
 
 
-#### 应用：字符串匹配问题
-
-1) 有一个字符串 str1="BBCABCDAB ABCDABCDABDE”，和一个子串str2="ABCDABD"；
-2) 现在要**判断 str1是否含有 str2**，如果存在，就返回第一次出现的位置，如果没有则返回-1；
-3) 要求：使用KMP算法完成判断，不能使用简单的暴力匹配算法。
-
-
-
 #### 部分匹配表
 
 | 搜索词     | A    | B    | C    | D    | A    | B    | D    |
@@ -346,6 +347,20 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 ”ABCDABD”的前缀为[A,AB,ABC,ABCD,ABCDA,ABCDAB]，后缀为[BCDABD,CDABD,DABD,ABD,BD,D]，共有元素的长度为 **0**
 
 > ”部分匹配”的实质是，有时候，字符串头部和尾部会有重复。比如，”ABCDAB”之中有两个”AB”，那么它的”部分匹配值”就是2(”AB”的长度)。搜索词移动的时候，第一个”AB”向后移动 4 位(字符串长度部分匹配值)，就可以来到第二个”AB”的位置。
+
+
+
+#### 应用：字符串匹配问题
+
+1) 有一个字符串 str1="BBCABCDAB ABCDABCDABDE”，和一个子串str2="ABCDABD"；
+2) 现在要**判断 str1是否含有 str2**，如果存在，就返回第一次出现的位置，如果没有则返回-1；
+3) 要求：使用KMP算法完成判断，不能使用简单的暴力匹配算法。
+
+##### [代码实现]("src/main/java/com/tzuxin/algorithm/kmp/KMPAlgorithm.java")
+
+
+
+
 
 
 
@@ -386,6 +401,8 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 2. 将这个电台加入到一个集合中(比如 ArrayList)，想办法把该电台覆盖的地区在下次比较时去掉。
 3.  重复第 1 步**直到覆盖了全部的地区**。
 
+[代码实现]("src/main/java/com/tzuxin/algorithm/greedy/GreedyAlgorithm.java")
+
 
 
 ##### 注意事项和细节
@@ -395,4 +412,96 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 3. 但是我们发现 K2、K3、K4、K5 也可以覆盖全部地区，如果K2 的使用成本低于 K1,那么我们上题的 K1、K2、K3、K5 虽然是满足条件，但是并不是最优的。
 
 
+
+### 4.6 普里姆(Prim)算法
+
+#### 普利姆(Prim)算法介绍
+
+普利姆(Prim)算法求最小生成树，也就是在包含1个顶点的连通图中，找出只有(n-1)条边包含所有1个顶点的连通子图，也就是所谓的极小连通子图
+
+普利姆的算法如下:
+
+1. 设 G=(V,E)是连通网，T=(U,D)是最小生成树，V,U 是顶点集合，ED 是边的集合
+2. 若从顶点u开始构造最小生成树，则从集合V中取出顶点u放入集合U中，标记顶点v的 visited[u]=1
+3. 若集合U中顶点ui与集合V-U 中的顶点之间存在边，则寻找这些边中权值最小的边，但不能构成回路，将顶点vj加入集合U 中，将边 (ui,vj) 加入集合 D 中，标记 visited[vj]=1
+4. 重复步骤2，直到与V相等，即所有顶点都被标记为访问过，此时 D 中有n-1 条边
+
+提示:单独看步骤很难理解，我们通过代码来讲解，比较好理解
+
+
+
+
+#### 应用场景-修路问题
+
+##### 问题描述
+
+<img src="/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230411143636506.png" alt="image-20230411143636506" />
+
+1. 乡里有7个村庄(A,B,C,D,E,F,G) ，现在需要修路把7个村庄连通
+
+2. 各个村庄的距离用边线表示(权) ，比如 A - B 距离 5公里
+
+   问:如何修路保证各个村庄都能连通，并且总的修建公路总里程最短?
+
+**思路:** 将 10 条边，连接即可，但是总的里程数不是最小.
+
+**正确的思路:** 尽可能的选择少的路线，并且每条路线最小，保证总里程数最少
+
+
+
+##### 最小生成树
+
+修路问题本质就是就是最小生成树问题， 先介绍一下**最小生成树(Minimum Cost Spanning Tree)**，简称MST
+
+给定一个带权的无向连通图,如何选取一棵生成树,使树上所有边上权的总和为最小这叫最小生成树
+
+1. N个顶点，一定有N-1条边
+2. 包含全部顶点
+3. N-1条边都在图中
+
+
+
+##### 代码实现
+
+```java
+
+/**
+ * Prim算法，得到最小生成树
+ * @param graph 图
+ * @param v     从那个顶点开始生成
+ */
+public void prim(Graph graph, int v) {
+    // 标记节点是否访问过 0是没访问过 1是访问过
+    int[] isVisited = new int[graph.getVerxs()];
+
+    // 标记为已访问
+    isVisited[v] = 1;
+    // 用来标记顶点下标
+    int h1 = -1;
+    int h2 = -1;
+    // 用来对比权值的值
+    int minWeight = Integer.MAX_VALUE;
+
+    // 需要n-1条边
+    for (int k = 1; k < graph.getVerxs(); k++) {
+
+        // 确定每一次生成的子图(i节点)能到达的权值最小的没访问过的点(j)
+        // i表示已经访问的节点，j表示没被访问过的节点
+        for (int i = 0; i < graph.getVerxs(); i++) {
+            for (int j = 0; j < graph.getVerxs(); j++) {
+                if (isVisited[i] == 1 && isVisited[j] == 0 && graph.getWeight()[i][j] < minWeight) {
+                    h1 = i;
+                    h2 = j;
+                    minWeight = graph.getWeight()[i][j];
+                }
+            }
+        }
+        // 输出此次找到的节点
+        System.out.println("边->" + graph.getData()[h1] + "---" + graph.getData()[h2] + "，权值为" + graph.getWeight()[h1][h2]);
+        // 重置参数
+        isVisited[h2] = 1;
+        minWeight = Integer.MAX_VALUE;
+    }
+}
+```
 
