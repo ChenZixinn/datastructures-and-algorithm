@@ -33,7 +33,7 @@
 
 ### 迷宫回溯问题
 
-##### 代码实现
+##### - 代码实现
 
 [迷宫回溯问题(Maze.java)](./src/main/java/com/tzuxin/datastructures/recurrence/Maze.java)
 
@@ -49,7 +49,7 @@
 
 ## 4) 哈希表(Hash Table)
 
-##### - 代码实现
+#### - 代码实现
 
 **[HashTableDemo.java](./src/main/java/com/tzuxin/datastructures/recurrence/HashTableDemo.java)**
 
@@ -368,19 +368,23 @@ private void dfs(boolean[] isVisited, int i){
 
 
 ## 1） 插入排序
-### 直接插入排序
+###  2.1.1 简单插入排序
 
 > 时间复杂度：O(n^2)
 >
-> 稳定性：稳定
+> 稳定性：不稳定
+
+
 
 #### - 算法介绍
 
+插入排序(Insertion Sorting)的基本思想是:**把 n 个待排序的元素看成为一个有序表和一个无序表**，开始时**有序表中只包含一个元素**，无序表中包含有 **n-1 个元素**，排序过程中每次从无序表中取出第一个元素，把它的排 序码依次与有序表元素的排序码进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。
 
+![image-20230413110601543](./README.assets/image-20230413110601543.png)
 
 #### - 代码实现
 
-[直接插入排序(Insertion Sort)](./src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java)
+[InsertionSort]("src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java")
 
 ```java
 /**
@@ -404,7 +408,7 @@ public static void insertionSort(int[] arr) {
 
 
 
-### 希尔排序
+### 2.1.2 希尔排序
 
 > 时间复杂度：O(n^1.3)
 >
@@ -464,46 +468,9 @@ public static void shellSort(int[] arr) {
 
 
 ## 2） 选择排序
-###  简单插入排序
-> 时间复杂度：O(n^2)
->
-> 稳定性：不稳定
 
 
-
-#### - 算法介绍
-
-插入排序(Insertion Sorting)的基本思想是:**把 n 个待排序的元素看成为一个有序表和一个无序表**，开始时**有序表中只包含一个元素**，无序表中包含有 **n-1 个元素**，排序过程中每次从无序表中取出第一个元素，把它的排 序码依次与有序表元素的排序码进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。
-
-![image-20230413110601543](./README.assets/image-20230413110601543.png)
-
-#### - 代码实现
-
-[InsertionSort]("src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java")
-
-```java
-/**
- * 插入排序
- * @param arr 待排序数组
- */
-public static void insertionSort(int[] arr) {
-    for (int i = 1; i < arr.length; i++) {
-        int key = arr[i];
-        int j = i - 1;
-        while (j >= 0 && arr[j] > key) {
-            arr[j + 1] = arr[j];
-            j--;
-        }
-        arr[j + 1] = key;
-    }
-}
-```
-
-
-
-
-
-### 简单选择排序
+### 2.2.1 简单选择排序
 
 #### - 算法介绍
 
@@ -551,7 +518,7 @@ public static void selectSort(int[] arr){
 
 
 
-### 堆排序(Heap Sort)
+### 2.2.2 堆排序(Heap Sort)
 > 时间复杂度：O(nlog2n) 
 >
 > 稳定性：不稳定
@@ -638,7 +605,7 @@ public static void adjustHeap(int[] arr, int i, int len) {
 
 
 ## 3）交换排序
-### 冒泡排序
+### 2.3.1 冒泡排序
 > 时间复杂度：O(n^2)
 >
 > 稳定性：稳定
@@ -684,7 +651,7 @@ public static void bubbleSort(int[] arr){
 
 
 
-### 快速排序
+### 2.3.2 快速排序
 > 时间复杂度：O(nlog2n)
 >
 > 稳定性：不稳定
@@ -741,7 +708,7 @@ public static void bubbleSort(int[] arr){
 
 ## 4）归并排序
 
-### 归并排序
+### 2.4.1 归并排序
 
 > 时间复杂度：O(nlog2n)
 >
@@ -816,7 +783,7 @@ public static void merge(int[] arr, int left, int right, int mid, int[] temp) {
 
 
 ## 5）基数排序
-### 基数排序
+### 2.5.1 基数排序
 
 > 时间复杂度：O(n*k)
 >
@@ -879,7 +846,7 @@ public static void radixSort(int[] arr) {
 
 
 # 3、查找算法
-### 二分查找(Binary Search)
+### 3.1 二分查找(Binary Search)
 
 #### - 代码实现
 
@@ -913,7 +880,7 @@ public static int binarySearch(int[] arr, int left, int right, int num) {
 
 
 
-### 差值查找
+### 3.2 差值查找
 
 
 
@@ -955,7 +922,7 @@ public static int differenceSearch(int[] arr, int left, int right, int num) {
 
 
 
-### 斐波那契(黄金分割法)查找(Fibonacci Search)
+### 3.3 斐波那契(黄金分割法)查找(Fibonacci Search)
 
 #### - 算法原理
 
