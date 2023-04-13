@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding" defaultCharsetForPropertiesFiles="UTF-8">
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tzuxin/algorithm/floyd/Graph.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/src/main/java/com/tzuxin/algorithm/kruskal/KruskalAlgorithm.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../LearingFiles/java/algorithm/笔记代码课件资料/代码/Algorithm/src/com/atguigu/horse/HorseChessboard.java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/../../LearingFiles/java/algorithm/笔记代码课件资料/代码/DataStructures/src/com/atguigu/graph/Graph.java" charset="GB2312" />
+    <file url="PROJECT" charset="UTF-8" />
+  </component>
+</project>
