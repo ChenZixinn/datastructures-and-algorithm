@@ -110,7 +110,7 @@
 
 从数据存储来看，数组存储方式和树的存储方式可以相互转换，即**数组可以转换成树，树也可以转换成数组**。
 
-![image-20230413133635625](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413133635625.png)
+![image-20230413133635625](./README.assets/image-20230413133635625.png)
 
 #### 顺序存储二叉树的特点:
 
@@ -146,7 +146,7 @@
 
 #### 应用案例
 
-![image-20230413133949841](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413133949841.png)
+![image-20230413133949841](./README.assets/image-20230413133949841.png)
 
 
 
@@ -252,13 +252,13 @@
 
 #### 左旋转
 
-![image-20230413135653179](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413135653179.png)
+![image-20230413135653179](./README.assets/image-20230413135653179.png)
 
 
 
 #### 右旋转
 
-![image-20230413142349138](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413142349138.png)
+![image-20230413142349138](./README.assets/image-20230413142349138.png)
 
 
 
@@ -280,7 +280,7 @@
 
 ### 图的遍历
 
-![image-20230413142456350](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413142456350.png)
+![image-20230413142456350](./README.assets/image-20230413142456350.png)
 
 
 
@@ -475,7 +475,7 @@ public static void shellSort(int[] arr) {
 
 插入排序(Insertion Sorting)的基本思想是:**把 n 个待排序的元素看成为一个有序表和一个无序表**，开始时**有序表中只包含一个元素**，无序表中包含有 **n-1 个元素**，排序过程中每次从无序表中取出第一个元素，把它的排 序码依次与有序表元素的排序码进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。
 
-![image-20230413110601543](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413110601543.png)
+![image-20230413110601543](./README.assets/image-20230413110601543.png)
 
 #### - 代码实现
 
@@ -509,7 +509,7 @@ public static void insertionSort(int[] arr) {
 
 选择排序(select sorting)也是一种简单的排序方法。它的基本思想是:第一次从 arr[0]~arr[n-1]中选取最小值，与 arr[0]交换，第二次从 arr[1]~arr[n-1]中选取最小值，与 arr[1]交换，第三次从 arr[2]~arr[n-1]中选取最小值，与 arr[2] 交换，...，第 i 次从 arr[i-1]~arr[n-1]中选取最小值，与 arr[i-1]交换，..., 第 n-1 次从 arr[n-2]~arr[n-1]中选取最小值， 与 arr[n-2]交换，总共通过 n-1 次，得到一个按排序码从小到大排列的有序序列。
 
-![image-20230413105445642](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413105445642.png)
+![image-20230413105445642](./README.assets/image-20230413105445642.png)
 
 
 
@@ -695,7 +695,7 @@ public static void bubbleSort(int[] arr){
 
 
 
-![image-20230413111249584](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413111249584.png)
+![image-20230413111249584](./README.assets/image-20230413111249584.png)
 
 ##### 代码实现
 
@@ -753,7 +753,7 @@ public static void bubbleSort(int[] arr){
 
 归并排序(MERGE-SORT)是利用归并的思想实现的排序方法，该算法采用经典的**分治(divide-and-conquer) 策略**(分治法将问题分(divide)成一些**小的问题然后递归求解**，而治(conquer)的阶段则将分的阶段得到的各答案"修补"在一起，即分而治之)。
 
-![image-20230413111527835](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413111527835.png)
+![image-20230413111527835](./README.assets/image-20230413111527835.png)
 
 
 
@@ -1388,7 +1388,7 @@ public void greedyAlgorithm(){
 
 ##### 问题描述
 
-<img src="/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230411143636506.png" alt="image-20230411143636506" />
+<img src="./README.assets/image-20230411143636506.png" alt="image-20230411143636506" />
 
 1. 乡里有7个村庄(A,B,C,D,E,F,G) ，现在需要修路把7个村庄连通
 
@@ -1465,7 +1465,7 @@ public void prim(Graph graph, int v) {
 
 ##### 算法图解
 
-![image-20230411194903150](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230411194903150.png)
+![image-20230411194903150](./README.assets/image-20230411194903150.png)
 
 第 1步：将边**<E,F>**加入 R 中。边<E,F>的权值最小，因此将它加入到最小生成树结果 R 中。
 
@@ -1497,7 +1497,7 @@ public void prim(Graph graph, int v) {
 
 ##### 判断是否构成回路
 
-![image-20230411195552638](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230411195552638.png)
+![image-20230411195552638](./README.assets/image-20230411195552638.png)
 
 在将<E,F><C,D> <D,E>加入到最小生成树 R 中之后，这几条边的顶点就都有了终点:
 
@@ -1592,7 +1592,7 @@ public int getEnd(int[] ends, int i) {
 
 ##### 问题
 
-![image-20230412183653890](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230412183653890.png)
+![image-20230412183653890](./README.assets/image-20230412183653890.png)
 
 求一个点到其他点的最短路径。
 
@@ -1686,7 +1686,7 @@ public static void floyd(Graph graph) {
 1. 马踏棋盘算法也被称为骑士周游问题
 2. 将马随机放在国际象棋的 8X8 棋盘 Board\[0~7]\[0~7]的某个方格中，马按走棋规则(马走日字)进行移动。要求每个方格只进入一次，走遍棋盘上全部 64 个方格
 
-![image-20230412195353939](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230412195353939.png)
+![image-20230412195353939](./README.assets/image-20230412195353939.png)
 
 #### 代码实现
 
