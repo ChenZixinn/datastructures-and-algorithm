@@ -13,15 +13,16 @@ public class Graph {
         for (String vertex : vertexes) {
             graph.insertVertex(vertex);
         }
-        graph.insertEdge(0,1,1);
-        graph.insertEdge(0,2,1);
-        graph.insertEdge(1,3,1);
-        graph.insertEdge(4,1,1);
-        graph.insertEdge(3,7,1);
-        graph.insertEdge(4,7,1);
-        graph.insertEdge(2,5,1);
-        graph.insertEdge(2,6,1);
-        graph.insertEdge(5,6,1);
+        //更新边的关系
+        graph.insertEdge(0, 1, 1);
+        graph.insertEdge(0, 2, 1);
+        graph.insertEdge(1, 3, 1);
+        graph.insertEdge(1, 4, 1);
+        graph.insertEdge(3, 7, 1);
+        graph.insertEdge(4, 7, 1);
+        graph.insertEdge(2, 5, 1);
+        graph.insertEdge(2, 6, 1);
+        graph.insertEdge(5, 6, 1);
         System.out.println("深度优先：");
         graph.dfs();
         System.out.println();
@@ -43,7 +44,7 @@ public class Graph {
     }
 
     /**
-     * 广度优先遍历
+     * 深度优先遍历
      * @param isVisited 是否被访问过的byte[]
      * @param i 下标
      */
@@ -110,6 +111,7 @@ public class Graph {
             }
         }
     }
+
     /**
      * 深度优先遍历
      */
@@ -129,7 +131,7 @@ public class Graph {
      */
     public int getFirstNeighbor(int index){
         for (int i = 0; i < vertexList.size(); i++) {
-            if (edges[index][i] > 0 && i != index){
+            if (edges[index][i] > 0){
                 return i;
             }
         }
@@ -144,7 +146,7 @@ public class Graph {
      */
     public int getNextNeighbor(int index, int oldIndex){
         for (int i = oldIndex+1; i < vertexList.size(); i++) {
-            if (edges[index][oldIndex] > 0 && i != index){
+            if (edges[index][i] > 0){
                 return i;
             }
         }

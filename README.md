@@ -2,37 +2,364 @@
 学习数据结构与算法的一些实例
 # 1、数据结构
 ## 1) 栈
-##### [计算器(Calculator.java)](./src/main/java/com/tzuxin/datastructures/stack/Calculator.java)
-##### [中序表达式转后序表达式 (PolandNotation.java)](./src/main/java/com/tzuxin/datastructures/stack/PolandNotation.java)
+### 计算器
+
+##### - 代码实现
+
+[计算器(Calculator.java)](./src/main/java/com/tzuxin/datastructures/stack/Calculator.java)
+
+
+
+### 中序表达式转后序表达式
+
+##### - 代码实现
+
+[中序表达式转后序表达式 (PolandNotation.java)](./src/main/java/com/tzuxin/datastructures/stack/PolandNotation.java)
+
+
 
 ## 2) 队列
-##### [循环队列 (CircleArrayList.java)](./src/main/java/com/tzuxin/datastructures/queue/CircleArrayList.java)
+### 循环队列
+
+##### - 代码实现
+
+[循环队列 (CircleArrayList.java)
+
+[](./src/main/java/com/tzuxin/datastructures/queue/CircleArrayList.java)
 
 ## 3) 递归
-##### [迷宫回溯问题(Maze.java)](./src/main/java/com/tzuxin/datastructures/recurrence/Maze.java)
-##### [八皇后问题(Queen8.java)](./src/main/java/com/tzuxin/datastructures/recurrence/Queen8.java)
+
+
+
+### 迷宫回溯问题
+
+##### 代码实现
+
+[迷宫回溯问题(Maze.java)](./src/main/java/com/tzuxin/datastructures/recurrence/Maze.java)
+
+
+
+### 八皇后问题
+
+##### - 代码实现
+
+[八皇后问题(Queen8.java)](./src/main/java/com/tzuxin/datastructures/recurrence/Queen8.java)
+
+
 
 ## 4) 哈希表(Hash Table)
+
+##### - 代码实现
+
 **[HashTableDemo.java](./src/main/java/com/tzuxin/datastructures/recurrence/HashTableDemo.java)**
 
+
+
 ## 5) 树
-##### [二叉树(Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/BinaryTreeDemo.java)
-##### [顺序存储二叉树(Array Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/ArrayBinaryTreeDemo.java)
-##### [线索二叉树(Threaded Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/threadedbinarytree/ThreadedBinaryTreeDemo.java)
-##### [哈夫曼树(Huffman Tree)](./src/main/java/com/tzuxin/datastructures/tree/huffmantree/HuffmanTree.java)
-##### [数据压缩(哈夫曼编码 Huffman Code)](./src/main/java/com/tzuxin/datastructures/tree/huffmancode/HuffmanCode.java)
 
-##### [二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
 
-##### [平衡二叉树(AVL Tree)](./src/main/java/com/tzuxin/datastructures/tree/avl/AVLTree.java)
+
+### 5.1 二叉树
+
+#### 介绍
+
+#### 树的常用术语
+
+![image-20230413133237718](./README.assets/image-20230413133237718-1363967.png)
+
+树的常用术语(结合示意图理解):
+
+1) 节点
+
+2) 根节点
+3) 父节点
+4) 子节点
+5) 叶子节点 (没有子节点的节点)
+6) 节点的权(节点值)
+7) 路径(从root节点找到该节点的路线) 8) 层
+8) 子树
+9) 树的高度(最大层数)
+10) 森林 :多颗子树构成森林
+
+
+
+#### 树的遍历
+
+使用前序，中序和后序对下面的二叉树进行遍历.
+
+1) **前序遍历**: 先输出父节点，再遍历左子树和右子树
+2) **中序遍历**: 先遍历左子树，再输出父节点，再遍历右子树
+
+3) **后序遍历**: 先遍历左子树，再遍历右子树，最后输出父节点
+
+**小结:** 看输出父节点的顺序，就确定是前序，中序还是后序
+
+
+
+#### - 代码实现
+
+[二叉树(Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/BinaryTreeDemo.java)
+
+
+
+### 5.2 顺序存储二叉树
+
+
+
+#### 介绍
+
+从数据存储来看，数组存储方式和树的存储方式可以相互转换，即**数组可以转换成树，树也可以转换成数组**。
+
+![image-20230413133635625](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413133635625.png)
+
+#### 顺序存储二叉树的特点:
+
+1. 顺序二叉树通常只考虑完全二叉树
+2. 第n个元素的左子节点为 2 * n + 1
+3. 第n个元素的右子节点为 2 * n + 2
+4. 第 n 个元素的父节点为 (n-1) / 2
+5. n : 表示二叉树中的第几个元素(按 0 开始编号如图所示)
+
+
+
+#### - 代码实现
+
+[顺序存储二叉树(Array Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/ArrayBinaryTreeDemo.java)
+
+
+
+### 5.3 线索二叉树
+
+#### 线索二叉树的特点
+
+1. n 个结点的二叉链表中含有 n+1 【公式 2n-(n-1)=n+1】 个空指针域。利用二叉链表中的空指针域，存放指向
+
+   该结点在某种遍历次序下的前驱和后继结点的指针(这种附加的指针称为"线索")
+
+2. 这种加上了线索的二叉链表称为线索链表，相应的二叉树称为线索二叉树(ThreadedBinaryTree)。根据线索性质的不同，线索二叉树可分为前序线索二叉树、中序线索二叉树和后序线索二叉树三种
+
+3. 一个结点的前一个结点，称为前驱结点
+
+4. 一个结点的后一个结点，称为后继结点
+
+
+
+#### 应用案例
+
+![image-20230413133949841](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413133949841.png)
+
+
+
+##### - 代码实现
+
+[线索二叉树(Threaded Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/threadedbinarytree/ThreadedBinaryTreeDemo.java)
+
+
+
+### 5.4 哈夫曼树
+
+#### 介绍
+
+1) 给定n个权值作为n个叶子结点，构造一棵二叉树，若该树的带权路径长度**(wpl)**达到最小，称这样的二叉树为 最优二叉树，也称为哈夫曼树(Huffman Tree), 还有的书翻译为霍夫曼树。
+2) 赫夫曼树是带权路径长度最短的树，权值较大的结点离根较近
+
+
+
+#### 重要概念
+
+1) **路径和路径长度**：在一棵树中，从一个结点往下可以达到的孩子或孙子结点之间的通路，称为路径。**通路中分支的数目称为路径长度**。若规定根结点的层数为 1，则从根结点到第 L 层结点的路径长度为 L-1
+2) **结点的权及带权路径长度**：若将树中结点赋给一个有着某种含义的数值，则这个数值称为该结点的权。**结点的带权路径长度为**：从根结点到该结点之间的路径长度与该结点的权的乘积
+3) **树的带权路径长度**：树的带权路径长度规定为**所有叶子结点的带权路径长度之和**，记为 WPL(weighted path length) ,权值越大的结点离根结点越近的二叉树才是最优二叉树。
+
+
+
+#### - 代码实现
+
+[哈夫曼树(Huffman Tree)](./src/main/java/com/tzuxin/datastructures/tree/huffmantree/HuffmanTree.java)
+
+
+
+### 5.5 数据压缩(哈夫曼编码)
+
+#### 介绍
+
+1) 赫夫曼编码也翻译为 **哈夫曼编码(Huffman Coding)**，又称霍夫曼编码，是一种编码方式, 属于一种程序算法 
+2) 赫夫曼编码是赫哈夫曼树在电讯通信中的经典的应用之一。
+3) 赫夫曼编码广泛地用于数据文件压缩。其压缩率通常在20%~90%之间
+4) 赫夫曼码是可变字长编码(VLC)的一种。Huffman于1952年提出一种编码方法，称之为最佳编码
+
+
+
+#### 原理
+
+![image-20230413134552284](./README.assets/image-20230413134552284.png)
+
+
+
+#### 应用案例-数据压缩(创建赫夫曼树)
+
+将给出的一段文本，比如 "i like like like java do you like a java" ， 根据前面的讲的赫夫曼编码原理，对其进行数 据压缩处理 ，形式如"10101001101111011110100110..."
+
+
+
+##### 思路
+
+1) 生成赫夫曼树对应的赫夫曼编码 , 如: a=100 d=11000 u=11001 e=1110 v=11011 i=101 y=11010 j=0010 k=1111 l=000 o=0011
+
+2) 使用赫夫曼编码来生成赫夫曼编码数据 ,即按照上面的赫夫曼编码，将"i like like like java do you like a java" 字符串生成对应的编码数据, 形式如下. 101010001011111111001000101111111100100010111111110010010100110111....
+
+
+
+##### - 代码实现
+
+[数据压缩(哈夫曼编码 Huffman Code)](./src/main/java/com/tzuxin/datastructures/tree/huffmancode/HuffmanCode.java)
+
+
+
+### 5.6 二叉排序树
+
+#### 介绍
+
+**BST: (Binary Sort(Search) Tree)**, 对于二叉排序树的任何一个非叶子节点，要求左子节点的值比当 前节点的值小，右子节点的值比当前节点的值大。
+
+**特别说明：**如果有相同的值，可以将该节点放在左子节点或右子节点 
+
+
+
+比如 (7, 3, 10, 12, 5, 1, 9) ，对应的二叉排序树为:
+
+![image-20230413135128246](./README.assets/image-20230413135128246.png)
+
+
+
+#### - 代码实现
+
+[二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
+
+
+
+### 5.7 平衡二叉树
+
+
+
+#### 介绍
+
+1) 平衡二叉树也叫**平衡二叉搜索树(Self-balancingbinarysearchtree)**又被称为AVL树，可以保证查询效率较高。
+2) 有以下特点:它是一棵空树或它的左右两个子树的高度差的绝对值不超过**1**，并且左右两个子树都是一棵
+3) 平衡二叉树。平衡二叉树的常用实现方法有红黑树、AVL、替罪羊树、Treap、伸展树等。
+
+
+
+#### 左旋转
+
+![image-20230413135653179](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413135653179.png)
+
+
+
+#### 右旋转
+
+![image-20230413142349138](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413142349138.png)
+
+
+
+#### 双旋转
+
+前面的两个数列，进行单旋转(即一次旋转)就可以将非平衡二叉树转成平衡二叉树,但是在某些情况下，单旋转 不能完成平衡二叉树的转换。
+
+
+
+#### - 代码实现
+
+[平衡二叉树(AVL Tree)](./src/main/java/com/tzuxin/datastructures/tree/avl/AVLTree.java)
 
 
 
 ## 6) 图
-##### [图(Graph)](./src/main/java/com/tzuxin/datastructures/graph/Graph.java)
-实现广度优先和深度优先算法
 
-实现左右旋转、双旋转
+
+
+### 图的遍历
+
+![image-20230413142456350](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413142456350.png)
+
+
+
+#### 广度优先遍历
+
+```java
+/**
+ * 对一个节点进行广度优先遍历
+ * @param isVisited 是否被访问过的byte[]
+ * @param i 下标
+ */
+private void bfs(boolean[] isVisited, int i){
+    int u;  // 队列头节点的下标
+    int w;  // 邻接节点
+    // 队列
+    LinkedList<Integer> queue = new LinkedList<>();
+    // 输出当前节点
+    System.out.print("=>" + getVertex(i));
+    // 标记为已访问
+    isVisited[i] = true;
+    // 把节点加入队列
+    queue.addLast(i);
+    // 队列非空就一直运行
+    while (!queue.isEmpty()){
+        u = queue.removeFirst();
+        // 找到u的第一个邻接点
+        w = getFirstNeighbor(u);
+        while (w != -1){
+            if (!isVisited[w]){
+                // 输出这个节点
+                System.out.print("=>" + getVertex(w));
+                // w入队
+                queue.addLast(w);
+                // 标记为已访问
+                isVisited[w] = true;
+            }
+            // 找u在w之后的节点
+            w = getNextNeighbor(u, w);
+        }
+    }
+}
+```
+
+
+
+
+
+#### 深度优先遍历
+
+```java
+/**
+ * 深度优先遍历
+ * @param isVisited 是否被访问过的byte[]
+ * @param i 下标
+ */
+private void dfs(boolean[] isVisited, int i){
+    // 先输出当前节点
+    System.out.print("=>" + getVertex(i));
+    isVisited[i] = true;
+    // 找到第一个邻接节点
+    int w = getFirstNeighbor(i);
+    while (w != -1){
+        // 如果这个邻接节点没被访问过，就让他进行遍历
+        if (!isVisited[w]){
+            dfs(isVisited, w);
+        }
+        // 让w指向i的下一个邻接节点
+        w = getNextNeighbor(i, w);
+    }
+}
+```
+
+
+
+#### - 代码实现
+
+[图(Graph)](./src/main/java/com/tzuxin/datastructures/graph/Graph.java)
+
+
 
 # 2、排序算法
 
@@ -56,6 +383,21 @@
 [直接插入排序(Insertion Sort)](./src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java)
 
 ```java
+/**
+ * 插入排序
+ * @param arr 待排序数组
+ */
+public static void insertionSort(int[] arr) {
+    for (int i = 1; i < arr.length; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
 ```
 
 
@@ -85,7 +427,7 @@
 
 
 
-![image-20230413111140722](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413111140722.png)
+![image-20230413111140722](./README.assets/image-20230413111140722.png)
 
 
 
