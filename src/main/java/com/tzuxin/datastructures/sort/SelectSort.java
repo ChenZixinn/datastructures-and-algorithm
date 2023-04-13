@@ -4,6 +4,10 @@ package com.tzuxin.datastructures.sort;
  * 选择排序
  */
 public class SelectSort {
+    /**
+     * 选择排序
+     * @param arr 数组
+     */
     public static void selectSort(int[] arr){
         int index;
         int min;

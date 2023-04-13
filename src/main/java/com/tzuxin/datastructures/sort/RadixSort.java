@@ -2,7 +2,15 @@ package com.tzuxin.datastructures.sort;
 
 import java.util.Arrays;
 
+/**
+ * 基数排序
+ * @author chenzixin
+ */
 public class RadixSort {
+    /**
+     * 基数排序
+     * @param arr 待排序数组
+     */
     public static void radixSort(int[] arr) {
         // 拿到最大的位数
         int max = arr[0];

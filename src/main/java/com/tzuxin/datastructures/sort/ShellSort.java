@@ -4,7 +4,15 @@ import com.tzuxin.datastructures.Test;
 
 import java.util.Arrays;
 
+/**
+ * 希尔排序
+ * @author chenzixin
+ */
 public class ShellSort {
+    /**
+     * 希尔排序
+     * @param arr 待排序数组
+     */
     public static void shellSort(int[] arr) {
         int len = arr.length;
         // 根据步长先排序一轮

@@ -13,7 +13,7 @@
 ##### [八皇后问题(Queen8.java)](./src/main/java/com/tzuxin/datastructures/recurrence/Queen8.java)
 
 ## 4) 哈希表(Hash Table)
-[HashTableDemo.java](./src/main/java/com/tzuxin/datastructures/recurrence/HashTableDemo.java)
+**[HashTableDemo.java](./src/main/java/com/tzuxin/datastructures/recurrence/HashTableDemo.java)**
 
 ## 5) 树
 ##### [二叉树(Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/BinaryTreeDemo.java)
@@ -21,8 +21,6 @@
 ##### [线索二叉树(Threaded Binary Tree)](./src/main/java/com/tzuxin/datastructures/tree/threadedbinarytree/ThreadedBinaryTreeDemo.java)
 ##### [哈夫曼树(Huffman Tree)](./src/main/java/com/tzuxin/datastructures/tree/huffmantree/HuffmanTree.java)
 ##### [数据压缩(哈夫曼编码 Huffman Code)](./src/main/java/com/tzuxin/datastructures/tree/huffmancode/HuffmanCode.java)
-
-实现文件压缩和解压操作
 
 ##### [二叉排序树(Binary Sort Tree)](./src/main/java/com/tzuxin/datastructures/tree/binarysorttree/BinarySortTree.java)
 
@@ -38,73 +36,661 @@
 
 # 2、排序算法
 
+> [排序算法演示：VisuAlgo](https://visualgo.net/en/sorting)
+
+
+
 ## 1） 插入排序
-##### [直接插入排序(Insertion Sort)](./src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java)
-时间复杂度：O(n^2)
+### 直接插入排序
+
+> 时间复杂度：O(n^2)
+>
+> 稳定性：稳定
+
+#### - 算法介绍
 
 
-稳定性：稳定
+
+#### - 代码实现
+
+[直接插入排序(Insertion Sort)](./src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java)
+
+```java
+```
 
 
-##### [希尔排序(Shell Sort)](./src/main/java/com/tzuxin/datastructures/sort/ShellSort.java)
-时间复杂度：O(n^1.3)
 
-稳定性：不稳定
+
+
+### 希尔排序
+
+> 时间复杂度：O(n^1.3)
+>
+> 稳定性：不稳定
+
+#### - 算法介绍
+
+希尔排序是希尔(Donald Shell)于 1959 年提出的一种排序算法。希尔排序也是一种**插入排序**，它是简单插入排序经过改进之后的一个更高效的版本，也称为**缩小增量排序**。
+
+##### 简单插入排序存在的问题
+
+我们看简单的插入排序可能存在的问题.
+ 数组 arr = {2,3,4,5,6,1} 这时需要插入的数**1(最小)**, 这样的过程是: {2,3,4,5,6,6}
+ {2,3,4,5,5,6}
+ {2,3,4,4,5,6}
+ {2,3,3,4,5,6}
+ {2,2,3,4,5,6}
+ {1,2,3,4,5,6}
+ 结论**:** **当需要插入的数是较小的数时，后移的次数明显增多，对效率有影响**
+
+
+
+![image-20230413111140722](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413111140722.png)
+
+
+
+#### - 代码实现
+
+[希尔排序(Shell Sort)](./src/main/java/com/tzuxin/datastructures/sort/ShellSort.java)
+
+```java
+/**
+ * 希尔排序
+ * @param arr 待排序数组
+ */
+public static void shellSort(int[] arr) {
+    int len = arr.length;
+    // 根据步长先排序一轮
+    int temp, gap = len / 2;
+    while (gap > 0) {
+        for (int i = gap; i < len; i++) {
+            temp = arr[i];
+            int preIndex = i - gap;
+            while (preIndex >= 0 && arr[preIndex] > temp) {
+                arr[preIndex + gap] = arr[preIndex];
+                preIndex -= gap;
+            }
+            arr[preIndex + gap] = temp;
+        }
+        gap /= 2;
+    }
+}
+```
+
+
 
 
 
 ## 2） 选择排序
-#####  [简单选择排序(Select Sort)](./src/main/java/com/tzuxin/datastructures/sort/SelectSort.java)
-时间复杂度：O(n^2)
+###  简单插入排序
+> 时间复杂度：O(n^2)
+>
+> 稳定性：不稳定
 
-稳定性：不稳定
 
 
-##### [堆排序(Heap Sort)](./src/main/java/com/tzuxin/datastructures/sort/HeapSort)
-时间复杂度：O(nlog2n) 
+#### - 算法介绍
 
-稳定性：不稳定
+插入排序(Insertion Sorting)的基本思想是:**把 n 个待排序的元素看成为一个有序表和一个无序表**，开始时**有序表中只包含一个元素**，无序表中包含有 **n-1 个元素**，排序过程中每次从无序表中取出第一个元素，把它的排 序码依次与有序表元素的排序码进行比较，将它插入到有序表中的适当位置，使之成为新的有序表。
+
+![image-20230413110601543](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413110601543.png)
+
+#### - 代码实现
+
+[InsertionSort]("src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java")
+
+```java
+/**
+ * 插入排序
+ * @param arr 待排序数组
+ */
+public static void insertionSort(int[] arr) {
+    for (int i = 1; i < arr.length; i++) {
+        int key = arr[i];
+        int j = i - 1;
+        while (j >= 0 && arr[j] > key) {
+            arr[j + 1] = arr[j];
+            j--;
+        }
+        arr[j + 1] = key;
+    }
+}
+```
+
+
+
+
+
+### 简单选择排序
+
+#### - 算法介绍
+
+选择排序(select sorting)也是一种简单的排序方法。它的基本思想是:第一次从 arr[0]~arr[n-1]中选取最小值，与 arr[0]交换，第二次从 arr[1]~arr[n-1]中选取最小值，与 arr[1]交换，第三次从 arr[2]~arr[n-1]中选取最小值，与 arr[2] 交换，...，第 i 次从 arr[i-1]~arr[n-1]中选取最小值，与 arr[i-1]交换，..., 第 n-1 次从 arr[n-2]~arr[n-1]中选取最小值， 与 arr[n-2]交换，总共通过 n-1 次，得到一个按排序码从小到大排列的有序序列。
+
+![image-20230413105445642](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413105445642.png)
+
+
+
+#### - 代码实现
+
+[简单选择排序(Select Sort)](./src/main/java/com/tzuxin/datastructures/sort/SelectSort.java)
+
+```java
+/**
+ * 选择排序
+ * @param arr 数组
+ */
+public static void selectSort(int[] arr){
+    int index;
+    int min;
+    for (int i = 0; i < arr.length; i++) {
+        // 记录最小的数
+        min = arr[i];
+        // 用于记录最小数的下标
+        index = -1;
+        for (int j = i+1; j < arr.length; j++) {
+            // 找到更小的数，先进行标记
+            if (arr[j] < min){
+                index = j;
+                min = arr[j];
+            }
+        }
+        // 如果有找到更小的数就进行交换
+        if (index != -1){
+            // 交换位置
+            int temp = arr[i];
+            arr[i] = min;
+            arr[index] = temp;
+        }
+    }
+}
+```
+
+
+
+
+### 堆排序(Heap Sort)
+> 时间复杂度：O(nlog2n) 
+>
+> 稳定性：不稳定
+>
+
+
+
+#### - 算法介绍
+
+1. 堆排序是利用堆这种数据结构而设计的一种排序算法，堆排序是一种选择排序，它的最坏，最好，平均时间复 杂度均为 **O(nlogn)**，它也是不稳定排序。
+2. 堆是具有以下性质的完全二叉树:每个结点的值都大于或等于其左右孩子结点的值，称为大顶堆, 注意 : 没有要求结点的左孩子的值和右孩子的值的大小关系。
+3. 每个结点的值都小于或等于其左右孩子结点的值，称为小顶堆
+4. 一般升序采用大顶堆，降序采用小顶堆
+
+
+
+##### 堆排序的基本思想是:
+
+1. 将待排序序列构造成一个大顶堆
+2. 此时，整个序列的最大值就是堆顶的根节点。
+3. 将其与末尾元素进行交换，此时末尾就为最大值。
+4. 然后将剩余n-1个元素重新构造成一个堆，这样会得到n个元素的次小值。如此反复执行，便能得到一个有序序列了。
+
+
+
+#### - 代码实现
+
+[堆排序(Heap Sort)](./src/main/java/com/tzuxin/datastructures/sort/HeapSort)
+
+```java
+
+/**
+ * 升序排序
+ *
+ * @param arr 要排序的数组
+ */
+public static void heapSort(int[] arr) {
+    int temp = 0;
+    // 先进行第一次调整，确保是大顶堆
+    for (int i = arr.length / 2 - 1; i >= 0; i--) {
+        adjustHeap(arr, i, arr.length);
+    }
+    for (int j = arr.length-1; j > 0; j--) {
+        // 把顶上的最大元素调整到最后一个叶子节点上，且不再移动
+        temp = arr[j] ;
+        arr[j] = arr[0];
+        arr[0] = temp;
+        adjustHeap(arr, 0, j);
+    }
+}
+
+/**
+ * 把数组(二叉树)调整为大顶堆
+ * @param arr 要调整的数组
+ * @param i   非叶子节点的下标
+ * @param len 要调整多少个元素(len会逐渐减少)
+ */
+public static void adjustHeap(int[] arr, int i, int len) {
+    int temp = arr[i];
+    // 从i指向的节点往下遍历，把大的树移动到上面
+    for (int j = i * 2 + 1; j < len; j = j * 2 + 1) {
+        // 指向左右子树中大的元素
+        if (j + 1 < len && arr[j] < arr[j + 1]) {
+            j++;
+        }
+        // 如果左/右子树的值大于i指向的元素，则进行交换。
+        if (arr[j] > temp) {
+            arr[i] = arr[j];
+            // 交换下标位置，让i指向下面的树
+            i = j;
+        } else {
+            // 如果小于，代表后面的节点已经排序好了，退出
+            break;
+        }
+    }
+    // 最后再把temp保存的值替换到最后交换的元素上
+    arr[i] = temp;
+}
+```
+
+
 
 
 
 
 ## 3）交换排序
-##### [冒泡排序(Bubble Sorting)](./src/main/java/com/tzuxin/datastructures/sort/BubbleSort.java)
-时间复杂度：O(n^2)
+### 冒泡排序
+> 时间复杂度：O(n^2)
+>
+> 稳定性：稳定
 
-稳定性：稳定
+
+
+##### 算法介绍
+
+冒泡排序(Bubble Sorting)的基本思想是：通过对待排序序列从前向后(从下标较小的元素开始)，**依次比较相邻元素的值，若发现逆序则交换，使值较大的元素逐渐从前移向后部**，就象水底下的气泡一样逐渐向上冒。
+
+
+
+##### 代码实现
+
+##### [冒泡排序(Bubble Sorting)](./src/main/java/com/tzuxin/datastructures/sort/BubbleSort.java)
+
+```java
+/**
+ * 冒泡排序
+ * @param arr 数组
+ */
+public static void bubbleSort(int[] arr){
+    boolean flag = true;
+    for (int i = 0; i < arr.length - 1; i++) {
+        for (int j = 0; j < arr.length - i - 1; j++) {
+            if (arr[j] > arr[j+1]){
+                // 交换
+                int temp = arr[j];
+                arr[j] = arr[j + 1];
+                arr[j + 1] = temp;
+                flag = false;
+            }
+        }
+        if (flag){
+            System.out.println("输入的数组已为排序好的数组");
+            return;
+        }
+    }
+}
+```
+
+
+
+
+
+### 快速排序
+> 时间复杂度：O(nlog2n)
+>
+> 稳定性：不稳定
+
+##### 算法介绍
+
+快速排序(Quicksort)是对**冒泡排序**的一种改进。基本思想是:通过一趟排序将要排序的数据分割成独立的两 部分，其中一部分的所有数据都比另外一部分的所有数据都要小，然后再按此方法对这两部分数据分别进行快速排 序，**整个排序过程可以递归进行**，以此达到整个数据变成有序序列	
+
+
+
+![image-20230413111249584](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413111249584.png)
+
+##### 代码实现
 
 ##### [快速排序(Quick Sort)](./src/main/java/com/tzuxin/datastructures/sort/QuickSort.java)
-时间复杂度：O(nlog2n)
 
-稳定性：不稳定
+```java
+/**
+     * 快速排序实现
+     * @param arr 待排序数组
+     * @param low 数组左侧下标
+     * @param high 右侧下标
+     */
+    public static void quickSort(int[] arr, int low, int high){
+        if (low < high){
+            // 指向交换后的中心点坐标
+            int pointer = low;
+            // 当前对比的元素，小的在左，大的在右
+            int pivot = arr[high];
+            // 循环当前数组段
+            for (int i = low; i < high; i++) {
+                // 大于中心的往右放
+                if (arr[i] <= pivot){
+                    int temp = arr[i];
+                    arr[i] = arr[pointer];
+                    arr[pointer] = temp;
+                    pointer++;
+                }
+            }
+            // 把基准数放到中心
+            arr[high] = arr[pointer];
+            arr[pointer] = pivot;
+            // 递归
+            quickSort(arr, low, pointer - 1);
+            quickSort(arr, pointer + 1, high);
+
+        }
+    }
+```
+
+
+
 
 
 ## 4）归并排序
+
+### 归并排序
+
+> 时间复杂度：O(nlog2n)
+>
+> 稳定性：稳定
+
+
+
+#### -算法介绍
+
+归并排序(MERGE-SORT)是利用归并的思想实现的排序方法，该算法采用经典的**分治(divide-and-conquer) 策略**(分治法将问题分(divide)成一些**小的问题然后递归求解**，而治(conquer)的阶段则将分的阶段得到的各答案"修补"在一起，即分而治之)。
+
+![image-20230413111527835](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230413111527835.png)
+
+
+
+#### -代码实现
+
 [归并排序(Merge Sort)](./src/main/java/com/tzuxin/datastructures/sort/MergeSort.java)
 
-时间复杂度：O(nlog2n)
+```java
+/**
+ * 归并排序
+ * @param arr 待排序数组
+ * @param left 左侧下标
+ * @param right 右侧下标
+ * @param temp 临时变量数组
+ */
+public static void mergeSort(int[] arr, int left, int right, int[] temp){
+    if (left < right){
+        int mid = (left + right) / 2;
+        // 左侧递归传入
+        mergeSort(arr, left, mid, temp);
+        // 右侧递归传入
+        mergeSort(arr, mid + 1, right, temp);
+        // 排序
+        merge(arr, left, right, mid, temp);
+    }
+}
 
-稳定性：稳定
+/**
+ * 
+ * @param arr 待排序数组
+ * @param left 左侧下标
+ * @param right 右侧下标
+ * @param mid 中间节点下标
+ * @param temp 临时变量
+ */
+public static void merge(int[] arr, int left, int right, int mid, int[] temp) {
+    int i = left;
+    int j = mid + 1;
+    int index = 0;
+    while (i <= mid || j <= right) {
+        if (j > right || (i <= mid && arr[i] <= arr[j]) ) {
+            temp[index++] = arr[i++];
+        } else {
+            temp[index++] = arr[j++];
+        }
+    }
+
+    // 拷贝到原来的数组里
+    index  = 0;
+    int tempLeft = left;
+    while (tempLeft <= right){
+        arr[tempLeft] = temp[index];
+        tempLeft++;
+        index++;
+    }
+}
+```
+
+
 
 
 ## 5）基数排序
+### 基数排序
+
+> 时间复杂度：O(n*k)
+>
+> 稳定性：稳定
+
+
+
+#### - 算法介绍
+
+将所有待比较数值统一为同样的数位长度，数位较短的数前面补零。然后，从最低位开始，依次进行一次排序。这样从最低位排序一直到最高位排序完成以后, 数列就变成一个有序序列。
+
+
+
+#### - 代码实现
+
 [基数排序(Radix Sort)](./src/main/java/com/tzuxin/datastructures/sort/RadixSort.java)
 
-时间复杂度：O(n*k)
+```java
+/**
+ * 基数排序
+ * @param arr 待排序数组
+ */
+public static void radixSort(int[] arr) {
+    // 拿到最大的位数
+    int max = arr[0];
+    for (int i = 1; i < arr.length; i++) {
+        if (max < arr[i]) {
+            max = arr[i];
+        }
+    }
+    int maxSize = (max + "").length();
 
-稳定性：稳定
+    // 桶
+    int[][] bucket = new int[10][arr.length];
+    // 记录bucket数组里存放的元素个数
+    int[] bucketSize = new int[10];
+
+    for (int k = 0; k < maxSize; k++) {
+        for (int i = 0; i < arr.length; i++) {
+            // 每次循环取不同的位
+            int digit = arr[i] / (int)Math.pow(10,k) % 10;
+            // 存放到对应桶的数组中，++的是元素的有效个数
+            bucket[digit][bucketSize[digit]++] = arr[i];
+        }
+        int index = 0;
+        // 把数据从桶取回数组
+        for (int i = 0; i < bucketSize.length; i++) {
+            if (bucketSize[i] != 0) {
+                for (int j = 0; j < bucketSize[i]; j++) {
+                    arr[index++] = bucket[i][j];
+                }
+            }
+            bucketSize[i] = 0;
+        }
+    }
+}
+```
+
+
 
 
 # 3、查找算法
-#####  [二分查找(Binary Search)](./src/main/java/com/tzuxin/datastructures/search/BinarySearch.java)
+### 二分查找(Binary Search)
 
-#####  [差值查找(Difference Search)](./src/main/java/com/tzuxin/datastructures/search/DifferenceSearch.java)
+#### - 代码实现
 
-#####  [斐波那契(黄金分割法)查找(Fibonacci Search)](./src/main/java/com/tzuxin/datastructures/search/FibonacciSearch.java)
+[二分查找(Binary Search)](./src/main/java/com/tzuxin/datastructures/search/BinarySearch.java)
+
+```java
+/**
+ * 二分查找
+ * @param arr 数组
+ * @param left 左侧下标
+ * @param right 右侧下标
+ * @param num 查找的数
+ * @return 目标在数组中的位置
+ */
+public static int binarySearch(int[] arr, int left, int right, int num) {
+    if (left > right) {
+        return -1;
+    }
+    System.out.println("1");
+
+    int mid = (left + right) / 2;
+    if (num == arr[mid]) {
+        return mid;
+    } else if (num > arr[mid]) {
+        return binarySearch(arr, mid + 1, right, num);
+    } else {
+        return binarySearch(arr, left, mid -1, num);
+    }
+}
+```
+
+
+
+### 差值查找
+
+
+
+#### - 算法原理
+
+1. 插值查找算法类似于二分查找，不同的是插值查找每次从自适应 mid 处开始查找。
+2. 将折半查找中的求mid索引的公式，low表示左边索引left，high表示右边索引right，key就是 findVal。
+3. int mid = low + (high - low) * (key - arr[low]) / (arr[high] - arr[low]) ;
+
+​		对应前面的代码公式: int mid = left + (right – left) * (findVal – arr[left]) / (arr[right] – arr[left])
+
+#### - 代码实现
+
+[差值查找(Difference Search)](./src/main/java/com/tzuxin/datastructures/search/DifferenceSearch.java)
+
+```java
+/**
+ * 
+ * @param arr 数组
+ * @param left 左侧下标
+ * @param right 右侧下标
+ * @param num 查找的数
+ * @return 目标在数组中的位置
+ */
+public static int differenceSearch(int[] arr, int left, int right, int num) {
+    if (left > right || num < arr[left] || num > arr[right]) {
+        return -1;
+    }
+    int mid = left+(right-left)*(num-arr[left])/(arr[right]-arr[left]);
+    if (num == arr[mid]) {
+        return mid;
+    } else if (num > arr[mid]) {
+        return differenceSearch(arr, mid + 1, right, num);
+    } else {
+        return differenceSearch(arr, left, mid -1, num);
+    }
+}
+```
+
+
+
+### 斐波那契(黄金分割法)查找(Fibonacci Search)
+
+#### - 算法原理
+
+斐波那契查找原理与前两种相似，仅仅改变了中间结点(mid)的位置，mid 不再是中间或插值得到，而是位于黄金分割点附近，即 mid=low+F(k-1)-1(F 代表斐波那契数列)
+
+
+
+#### - 代码实现
+
+[斐波那契(黄金分割法)查找(Fibonacci Search)](./src/main/java/com/tzuxin/datastructures/search/FibonacciSearch.java)
+
+```java
+/**
+ * 获取斐波那契数组
+ * @return 斐波那契数组
+ */
+public static int[] fib() {
+    int[] f = new int[maxSize];
+    f[0] = 1;
+    f[1] = 1;
+    for (int i = 2; i < maxSize; i++) {
+        f[i] = f[i - 1] + f[i - 2];
+    }
+    return f;
+}
+
+/**
+ * 
+ * @param arr 数组
+ * @param key 查找的值
+ * @return 目标的下标
+ */
+public static int fibSearch(int[] arr, int key) {
+    // fib数组下标
+    int k = 0;
+    // 数组左侧
+    int low = 0;
+    // 数组右侧
+    int high = arr.length - 1;
+    // 分割点
+    int mid = 0;
+    // fib数组
+    int[] f = fib();
+    // 找到足够的数据
+    while (high > f[k] - 1) {
+        k++;
+    }
+    // 原始数组可能不够长，扩展
+    int[] temp = Arrays.copyOf(arr, f[k]);
+    for (int i = high + 1; i < temp.length; i++) {
+        temp[i] = arr[high];
+    }
+
+    while (low <= high) {
+        mid = low + f[k - 1] - 1;
+        if (key < temp[mid]) {
+            high = mid - 1;
+            k--;
+        } else if (key > temp[mid]) {
+            low = mid + 1;
+            k -= 2;
+        } else {
+            if (mid <= high) {
+                return mid;
+            } else {
+                return high;
+            }
+        }
+    }
+    return -1;
+}
+```
+
 
 
 # 4、十大常见算法
+
 ### 4.1 非递归二分查找(Binary Search)
 
 ##### [代码实现](src/main/java/com/tzuxin/algorithm/binarysearch/BinarySearch.java)
@@ -208,7 +794,7 @@ public static void hanoiTower(int num, char a, char b, char c){
 
 
 
-### 4.3 动态规划算法
+### 4.3 动态规划(Dynamic Programming)算法
 
 
 
@@ -456,7 +1042,7 @@ public void greedyAlgorithm(){
 
 
 
-#### 应用场景-修路问题
+#### 应用场景-修路问题(最小生成树)
 
 ##### 问题描述
 
@@ -486,10 +1072,9 @@ public void greedyAlgorithm(){
 
 
 
-##### 代码实现
+##### [代码实现]("src/main/java/com/tzuxin/algorithm/prim/PrimAlgorithm.java")
 
 ```java
-
 /**
  * Prim算法，得到最小生成树
  * @param graph 图
@@ -586,7 +1171,7 @@ public void prim(Graph graph, int v) {
 
 
 
-#### 代码演示
+#### 应用场景-最小生成树
 
 [代码实现]("src/main/java/com/tzuxin/algorithm/kruskal/KruskalAlgorithm.java")
 
@@ -641,5 +1226,173 @@ public int getEnd(int[] ends, int i) {
     }
     return i;
 }
+```
+
+
+
+### 4.8 狄杰斯特拉(Dijkstra)算法
+
+#### Dijkstra算法
+
+##### 算法介绍
+
+迪杰斯特拉(Diikstra)算法是**典型最短路径算法**，用于计算一个结点到其他结点的最短路径。它的主要特点是以起始点为中心向外层层扩展(**广度优先搜索思想**)，直到扩展到终点为止。
+
+
+
+##### 算法过程
+
+设置出发顶点为v，顶点集合 V{v1, v2, vi...}，v到V中各顶点的距离构成距离集合 Dis，Dis{d1, d2, di...}，Dis集合记录着v到图中各顶点的距离(到自身可以看作 0，v到vi距离对应为 di)，从 Dis 中选择值最小的di并移出 Dis 集合，同时移出V集合中对应的顶点 vi，此时的v到即为最短路径
+
+
+
+#### 应用场景-最短路径问题
+
+##### 问题
+
+![image-20230412183653890](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230412183653890.png)
+
+求一个点到其他点的最短路径。
+
+
+
+##### [代码实现]("src/main/java/com/tzuxin/algorithm/dijkstra/DijkstraAlgorithm.java")
+
+```java
+/**
+ *
+ * @param graph 图的实例
+ * @param index 出发顶点对应的下标
+ */
+public void dijkstraAlgorithm(Graph graph, int index){
+    this.graph = graph;
+    vv = new VisitedVertex(graph.getVertexes().length, index);
+    // 更新index节点到周围节点的前驱和最短距离
+    update(index);
+    for (int i = 1; i < this.graph.getVertexes().length; i++) {
+        // 选择并返回新的访问节点(上一次遍历后路径最短的合适节点)
+        index = vv.updateArr();
+        update(index);
+    }
+}
+
+/**
+ * 更新index顶点到周围顶点的距离和周围顶点的前驱顶点
+ * @param index 顶点下标
+ */
+private void update(int index){
+    int len;
+    for(int j = 0; j < this.graph.getMatrix()[index].length; j++) {
+        // 获取最新的路径：起点到达该节点的最短路径 + 当前节点到达该节点的路径
+        len = vv.getDisByIndex(index) + this.graph.getMatrix()[index][j];
+        // 如果该节点还没更新过 且 拿到的路径小于已经存在的路径
+        if(!vv.isAlready(j) && len < vv.getDisByIndex(j)) {
+            // 更新父节点
+            vv.updatePre(j, index);
+            // 更新结果数组
+            vv.updateDis(j, len);
+        }
+    }
+}
+```
+
+
+
+### 4.9 弗洛伊德(Floyd)算法
+
+
+
+#### 应用场景-最短路径
+
+##### 代码实现
+
+```java
+/**
+ * 弗洛伊德算法
+ * @param graph 图
+ */
+public static void floyd(Graph graph) {
+    //变量保存距离
+    int len = 0;
+    //对中间顶点遍历， k 就是中间顶点的下标 [A, B, C, D, E, F, G]
+    for(int k = 0; k < graph.getDis().length; k++) {
+        //从i顶点开始出发 [A, B, C, D, E, F, G]
+        for(int i = 0; i < graph.getDis().length; i++) {
+            //到达j顶点 // [A, B, C, D, E, F, G]
+            for(int j = 0; j < graph.getDis().length; j++) {
+                // => 求出从i 顶点出发，经过 k中间顶点，到达 j 顶点距离
+                len = graph.getDis()[i][k] + graph.getDis()[k][j];
+                //如果len小于 dis[i][j]
+                if(len < graph.getDis()[i][j]) {
+                    //更新距离
+                    graph.getDis()[i][j] = len;
+                    //更新前驱顶点
+                    graph.getPre()[i][j] = graph.getPre()[k][j];
+                }
+            }
+        }
+    }
+}
+```
+
+### 4.10 马踏棋盘算法
+
+
+
+#### 马踏棋盘算法介绍
+
+1. 马踏棋盘算法也被称为骑士周游问题
+2. 将马随机放在国际象棋的 8X8 棋盘 Board\[0~7]\[0~7]的某个方格中，马按走棋规则(马走日字)进行移动。要求每个方格只进入一次，走遍棋盘上全部 64 个方格
+
+![image-20230412195353939](/Users/chenzixin/Library/Mobile Documents/com~apple~CloudDocs/Documents/Code/datastructures-and-algorithm/README.assets/image-20230412195353939.png)
+
+#### 代码实现
+
+1. 马踏棋盘问题(骑士周游问题)实际上是图的深度优先搜索(DFS)的应用。
+2. 如果使用回溯(就是深度优先搜索)来解决，假如马儿踏了 53 个点，如图:走到了第 53 个，坐标 (1,0)，发现已经走到尽头，没办法，那就只能回退了，查看其他的路径，就在棋盘上不停的回溯····
+3. 分析第一种方式的问题，并使用贪心算法（greedy algorithm）进行优化。
+
+```java
+// 部分代码
+
+
+/**
+ * 完成骑士周游问题的算法
+ * @param chessboard 棋盘
+ * @param row 马儿当前的位置的行 从0开始
+ * @param column 马儿当前的位置的列  从0开始
+ * @param step 是第几步 ,初始位置就是第1步
+ */
+public static void traversalChessboard(int[][] chessboard, int row, int column, int step) {
+    chessboard[row][column] = step;
+    //标记该位置已经访问
+    isVisited[row][column] = true;
+    //获取当前位置可以走的下一个位置的集合
+    ArrayList<Point> ps = next(new Point(column, row));
+    //对ps进行排序,排序的规则就是对ps的所有的Point对象的下一步的位置的数目，进行非递减排序
+    sort(ps);
+    //遍历 ps
+    while(!ps.isEmpty()) {
+        //取出下一个可以走的位置
+        Point p = ps.remove(0);
+        //判断该点是否已经访问过
+        if(!isVisited[p.y][p.x]) {
+            //说明还没有访问过
+            traversalChessboard(chessboard, p.y, p.x, step + 1);
+        }
+    }
+    //判断马儿是否完成了任务，使用   step 和应该走的步数比较 ，
+    //如果没有达到数量，则表示没有完成任务，将整个棋盘置0
+    //说明: step < X * Y  成立的情况有两种
+    //1. 棋盘到目前位置,仍然没有走完
+    //2. 棋盘处于一个回溯过程
+    if(step < X * Y && !finished ) {
+        chessboard[row][column] = 0;
+        isVisited[row][column] = false;
+    } else {
+        finished = true;
+    }
+}
+
 ```
 

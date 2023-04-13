@@ -3,6 +3,10 @@ package com.tzuxin.datastructures.sort;
 import java.util.Arrays;
 
 public class InsertionSort {
+    /**
+     * 插入排序
+     * @param arr 待排序数组
+     */
     public static void insertionSort(int[] arr) {
         for (int i = 1; i < arr.length; i++) {
             int key = arr[i];

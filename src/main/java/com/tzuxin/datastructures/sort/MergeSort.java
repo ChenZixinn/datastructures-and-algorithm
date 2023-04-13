@@ -6,6 +6,13 @@ import java.util.Arrays;
  * @author chenzixin
  */
 public class MergeSort {
+    /**
+     * 归并排序
+     * @param arr 待排序数组
+     * @param left 左侧下标
+     * @param right 右侧下标
+     * @param temp 临时变量数组
+     */
     public static void mergeSort(int[] arr, int left, int right, int[] temp){
         if (left < right){
             int mid = (left + right) / 2;
@@ -17,6 +24,15 @@ public class MergeSort {
             merge(arr, left, right, mid, temp);
         }
     }
+
+    /**
+     *
+     * @param arr 待排序数组
+     * @param left 左侧下标
+     * @param right 右侧下标
+     * @param mid 中间节点下标
+     * @param temp 临时变量
+     */
     public static void merge(int[] arr, int left, int right, int mid, int[] temp) {
         int i = left;
         int j = mid + 1;

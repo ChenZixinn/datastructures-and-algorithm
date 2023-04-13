@@ -4,6 +4,14 @@ package com.tzuxin.datastructures.search;
 二分查找
  */
 public class BinarySearch {
+    /**
+     * 二分查找
+     * @param arr 数组
+     * @param left 左侧下标
+     * @param right 右侧下标
+     * @param num 查找的数
+     * @return 目标在数组中的位置
+     */
     public static int binarySearch(int[] arr, int left, int right, int num) {
         if (left > right) {
             return -1;

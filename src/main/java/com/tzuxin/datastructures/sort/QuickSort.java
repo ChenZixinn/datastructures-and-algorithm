@@ -2,7 +2,17 @@ package com.tzuxin.datastructures.sort;
 
 import java.util.Arrays;
 
+/**
+ * 快速排序
+ * @author chenzixin
+ */
 public class QuickSort {
+    /**
+     * 快速排序实现
+     * @param arr 待排序数组
+     * @param low 数组左侧下标
+     * @param high 右侧下标
+     */
     public static void quickSort(int[] arr, int low, int high){
         if (low < high){
             // 指向交换后的中心点坐标
@@ -18,7 +28,6 @@ public class QuickSort {
                     arr[pointer] = temp;
                     pointer++;
                 }
-//                System.out.println(Arrays.toString(arr));
             }
             // 把基准数放到中心
             arr[high] = arr[pointer];

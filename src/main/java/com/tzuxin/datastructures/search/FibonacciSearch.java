@@ -5,6 +5,10 @@ import java.util.Arrays;
 public class FibonacciSearch {
     public static int maxSize = 20;
 
+    /**
+     * 获取斐波那契数组
+     * @return 斐波那契数组
+     */
     public static int[] fib() {
         int[] f = new int[maxSize];
         f[0] = 1;
@@ -15,6 +19,12 @@ public class FibonacciSearch {
         return f;
     }
 
+    /**
+     *
+     * @param arr 数组
+     * @param key 查找的值
+     * @return 目标的下标
+     */
     public static int fibSearch(int[] arr, int key) {
         // fib数组下标
         int k = 0;

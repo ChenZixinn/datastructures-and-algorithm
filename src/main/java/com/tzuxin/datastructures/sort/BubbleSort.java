@@ -5,6 +5,10 @@ package com.tzuxin.datastructures.sort;
  */
 public class BubbleSort {
 
+    /**
+     * 冒泡排序
+     * @param arr 数组
+     */
     public static void bubbleSort(int[] arr){
         boolean flag = true;
         for (int i = 0; i < arr.length - 1; i++) {
