@@ -528,7 +528,7 @@ private void dfs(boolean[] isVisited, int i){
 
 #### - 代码实现
 
-[InsertionSort]("src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java")
+[InsertionSort](src/main/java/com/tzuxin/datastructures/sort/InsertionSort.java)
 
 ```java
 /**
@@ -1395,7 +1395,7 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 2) 现在要**判断 str1是否含有 str2**，如果存在，就返回第一次出现的位置，如果没有则返回-1；
 3) 要求：使用KMP算法完成判断，不能使用简单的暴力匹配算法。
 
-##### [代码实现]("src/main/java/com/tzuxin/algorithm/kmp/KMPAlgorithm.java")
+##### [代码实现](src/main/java/com/tzuxin/algorithm/kmp/KMPAlgorithm.java)
 
 
 
@@ -1440,7 +1440,7 @@ ABCDAB”的前缀为[A,**AB**,ABC,ABCD,ABCDA]，后缀为[BCDAB,CDAB,DAB,**AB**
 2. 将这个电台加入到一个集合中(比如 ArrayList)，想办法把该电台覆盖的地区在下次比较时去掉。
 3.  重复第 1 步**直到覆盖了全部的地区**。
 
-[代码实现]("src/main/java/com/tzuxin/algorithm/greedy/GreedyAlgorithm.java")
+[代码实现](src/main/java/com/tzuxin/algorithm/greedy/GreedyAlgorithm.java)
 
 部分代码：
 
@@ -1525,7 +1525,7 @@ public void greedyAlgorithm(){
 
 
 
-##### [代码实现]("src/main/java/com/tzuxin/algorithm/prim/PrimAlgorithm.java")
+##### [代码实现](src/main/java/com/tzuxin/algorithm/prim/PrimAlgorithm.java)
 
 ```java
 /**
@@ -1626,7 +1626,7 @@ public void prim(Graph graph, int v) {
 
 #### 应用场景-最小生成树
 
-[代码实现]("src/main/java/com/tzuxin/algorithm/kruskal/KruskalAlgorithm.java")
+[代码实现](src/main/java/com/tzuxin/algorithm/kruskal/KruskalAlgorithm.java)
 
 ```java
 // 部分代码
@@ -1709,7 +1709,7 @@ public int getEnd(int[] ends, int i) {
 
 
 
-##### [代码实现]("src/main/java/com/tzuxin/algorithm/dijkstra/DijkstraAlgorithm.java")
+##### [代码实现](src/main/java/com/tzuxin/algorithm/dijkstra/DijkstraAlgorithm.java)
 
 ```java
 /**
